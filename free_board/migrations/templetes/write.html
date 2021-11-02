@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>free_board_write</title>
+</head>
+<body>
+    
+ <form action="/free_board/write/" id="free_write" method="post">
+    {% csrf_token %}
+    제목 : <input type="text" name='title'>
+    <input type='submit' 입력>
+</form>
+
+<textarea name="content" form="free_write"> 내용 </textarea>
+    
+</body>
+</html>
