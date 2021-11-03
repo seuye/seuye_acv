@@ -37,14 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #sites
     'django.contrib.sites',
-    #allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # 어떤 소셜 로그인이냐에 따라 추가 / 변경 됩니다.
+    # Login via Google as an exemple, you can choose facebook, twitter as you like
     'allauth.socialaccount.providers.naver',
-
+    'allauth.socialaccount.providers.google',
+    "landing",
+    "mnt_detail",
+    "free_board"
 ]
 
 MIDDLEWARE = [
@@ -57,12 +60,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'mountainwiki_jin.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['.templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,6 +130,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = "./_media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
