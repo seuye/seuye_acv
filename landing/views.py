@@ -13,10 +13,6 @@ def index(request):
     return render(request, "landing/index.html")
 
 def landing(request):
-    json = requests.get("http://34.64.157.240:8000/details/default")
-    context = {
-        "contents" : json
-    }
     return render(request, "landing/landing.html", context)
 
 from landing.models import Post
