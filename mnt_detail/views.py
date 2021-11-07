@@ -12,9 +12,6 @@ def mnt_detail(request):
     json_dict = json.loads(json_rq)
     print(type(json_dict))
     context = {
-        "contents": json_dict,
-        "test": {
-            "test2":"test"
-        }
+        "contents": json_dict, 
     }
     return render(request, "mnt_detail/mnt_detail.html", context)

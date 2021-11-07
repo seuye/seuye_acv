@@ -3,10 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+   />
+       <style>
+           body{
+               margin: 0;
+           }
+
+           .menubar{
+               /* border: 1px solid black; */
+               font-weight: lighter;
+               height: 101px;
+               background-color:rgb(255, 255, 255);
+               position: sticky;
+               top: 0;
+               border-bottom: 1px solid rgb(232, 232, 232);
+           }
+
+           .left{
+               display:flex;
+               float:left;
+               margin-left: 140.44px;
+               margin-top: 16px;
+               /* border: 1px solid black; */
+           }
+
+           .middle{
+               /* border: 1px solid black; */
+               color: rgba(255, 118, 12, 1);
+               display: flex;
+               float: left;
+               margin-top : 21px;
+               margin-left: 300px;
+               font-size: 45px;
+               font-weight: bold;
+           }
+
+           .right{
+               /* border: 1px solid black; */
+               display:flex;
+               float: right;
+               margin-right: 160.44px;
+               margin-top : 16px;
+           }
+
+           .left_text{
+               /* border: 1px solid black; */
+               font-size: 20px;
+               font-weight: bolder;
+               margin: 20px;
+           }
+ 
+           .right_text{
+               /* border: 1px solid black; */
+               font-size: 17px;
+               margin: 20px;
+           }
+
+           .right_button{
+               display: flex;
+               font-size: 17px;
+               font-weight: bold;
+           }
+
+           .button_sign-in{
+               border: 1px solid rgba(66, 70, 66, 0.78);
+               border-radius: 14px;
+               margin-top: 10px;
+               margin-bottom: 10px;
+               padding-right: 12px;
+               padding-top: 11.5px;
+               padding-bottom: 11.5px;
+               padding-left: 12px;
+               background-color: rgba(66, 70, 66, 0.78);
+               color: white;
+           }
+
+           .button_log-in{
+               border: 1px solid rgba(66, 70, 66, 0.78);
+               border-radius: 14px;
+               margin-top: 10px;
+               margin-bottom: 10px;
+               margin-left: 5px;
+               padding-right: 18px;
+               padding-top: 11px;
+               padding-bottom: 11px;
+               padding-left: 18px;
+               color: rgba(66, 70, 66, 0.78);
+
+           }
+    </style>
 </head>
+
 <body>
-    산 상세정보페이지
+    <div class ="menubar">
+        <div class="left">
+            <div class="left_text">자유게시판</div>
+            <div class="left_text">등산용품 게시판</div>
+        </div>
+        <div class="middle">Mountain Wiki</div>
+        <div class="right">
+            <div class="right_text" style="display: flex;">튜토리얼</div>
+            <!-- <div class="right_text" id="login">로그인</div> -->
+            <div class="right_button">
+                <div class="button_sign-in">회원가입</div>
+                <div class="button_log-in">로그인</div>
+            </div>
+        </div>
+    </div>
+<!-- css 부터 짜고 필요한 부분에 변수 넣는다. -->
+
     <h1>{{test.test2}}</h1>
     <h1>{{contents.section_1.mnt_name}}</h1>
+
 </body>
 </html>
