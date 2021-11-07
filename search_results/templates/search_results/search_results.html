@@ -96,6 +96,85 @@
             color: rgba(66, 70, 66, 0.78);
 
         }
+
+        .main-container {
+                width: 100%;
+                margin: auto;
+                display: flex;
+                /* grid-template-columns: 568px 1214px; */
+                /* gap: 10px; */
+            }
+
+            .temp-box_left {
+                /* background-color: yellow; */
+                width: 30%;
+                height: 100%;
+                /* border: 1px solid black; */
+                text-align: center;
+            }
+            .temp-box_right {
+                margin-left: 1rem;
+                /* background-color: yellow; */
+                width: 70%;
+                height: 100%;
+                /* border: 1px solid black; */
+                text-align: center;
+            }
+
+            .search-category {
+                background-color: rgba(255, 118, 12, 1);
+                font-size: 20px;
+                margin-top: 49px;
+                margin-left: 375px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-right:40px;
+                border: 1px solid rgba(255, 118, 12, 1);
+                border-radius: 80px;
+                color: white;
+                font-weight: bold;
+            }
+
+            .search-box {
+                border: 1px solid rgb(99, 99, 99);
+                border-radius: 80px;
+                margin-top: 34px;
+                margin-right: 568px;
+                padding-top: 34px;
+                padding-bottom: 34px;
+                background-color: white;
+                display: flex;
+            }
+
+            .recent-box {
+                /* border: 1px solid black; */
+                margin-top: 15px;
+                margin-left: 88px;
+                padding-bottom: 40px;
+                display: flex;
+            }
+
+            .recent-text {
+                /* border: 1px solid black; */
+                margin-top: 10px;
+                font-size: 12px;
+            }
+
+            .hashtag-box {
+                display: flex;
+                margin-left: 20px;
+                font-size: 14px;
+            }
+            
+            .hashtag {
+                border: 1px solid black;
+                border-radius: 18px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-right: 14px;
+                padding-left: 14px;
+                margin-right: 5px;
+            }
     </style>
 
 </head>
@@ -113,6 +192,31 @@
                 <div class="button_sign-in">회원가입</div>
                 <div class="button_log-in">로그인</div>
             </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="temp-box_left">
+            <div class="search-category">등산코스 
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="temp-box_right">
+            <div class="search-box">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <div class="search-ex">가을명산</div>
+            </div>
+
+            <div class="recent-box">
+                <div class="recent-text">요즘 뜨는 태그들</div>
+                <div class="hashtag-box">
+                    <div class="hashtag">#가을산</div>
+                    <div class="hashtag">#억새맛집</div>
+                    <div class="hashtag">#블랙야크 100대명산</div>
+                    <div class="hashtag">#충청도산</div>
+                </div>
+            </div>
+
         </div>
     </div>
 
