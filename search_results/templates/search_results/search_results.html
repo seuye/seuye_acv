@@ -96,6 +96,151 @@
             color: rgba(66, 70, 66, 0.78);
 
         }
+
+        .main-container {
+                width: 100%;
+                margin: auto;
+                display: flex;
+                /* grid-template-columns: 568px 1214px; */
+                /* gap: 10px; */
+            }
+
+            .temp-box_left {
+                /* background-color: yellow; */
+                width: 30%;
+                height: 100%;
+                /* border: 1px solid black; */
+                text-align: center;
+            }
+            .temp-box_right {
+                margin-left: 1rem;
+                /* background-color: yellow; */
+                width: 70%;
+                height: 100%;
+                /* border: 1px solid black; */
+                text-align: center;
+            }
+
+            .search-category {
+                background-color: rgba(255, 118, 12, 1);
+                font-size: 20px;
+                margin-top: 49px;
+                margin-left: 375px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-right:40px;
+                border: 1px solid rgba(255, 118, 12, 1);
+                border-radius: 80px;
+                color: white;
+                font-weight: bold;
+            }
+
+            .search-box {
+                border: 1px solid rgb(99, 99, 99);
+                border-radius: 80px;
+                margin-top: 34px;
+                margin-right: 568px;
+                padding-top: 34px;
+                padding-bottom: 34px;
+                background-color: white;
+                display: flex;
+            }
+
+            .recent-box {
+                /* border: 1px solid black; */
+                margin-top: 15px;
+                margin-left: 88px;
+                padding-bottom: 40px;
+                display: flex;
+            }
+
+            .recent-text {
+                /* border: 1px solid black; */
+                margin-top: 10px;
+                font-size: 12px;
+            }
+
+            .hashtag-box {
+                display: flex;
+                margin-left: 20px;
+                font-size: 14px;
+            }
+            
+            .hashtag {
+                border: 1px solid black;
+                border-radius: 18px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-right: 14px;
+                padding-left: 14px;
+                margin-right: 5px;
+            }
+
+                        /* search 부분 */
+            .search_result {
+            display: flex;
+            flex-direction: column;
+            margin: 0rem 10rem 0rem 10rem;
+            }
+            .result_top {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            }
+            .result_text {
+            display: flex;
+            flex-direction: row;
+            }
+            .search_value {
+            font-weight: bold;
+            }
+            .result_sort {
+            display: flex;
+            flex-direction: row;
+            }
+
+            .result_content {
+            display: flex;
+            flex-direction: row;
+            margin: 1rem;
+            border: solid 1px #b9b9b9;
+            border-radius: 1.5rem;
+            }
+            .content_img {
+            /* border: solid 1px black; */
+            border-radius: 1.5rem;
+            }
+
+            .mnt_img {
+            display: block;
+            object-fit: cover;
+            border-radius: 1rem 0rem 0rem 1rem;
+            width: 410px;
+            height: 260px;
+            /* height: auto; */
+            }
+
+            .content_info {
+            margin: 2rem;
+            width: 30%;
+            }
+            .mnt_name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            }
+            .mnt_location {
+            font-size: 0.8rem;
+            color: #767676;
+            margin-bottom: 0.5rem;
+            }
+            .mnt_height {
+            margin-bottom: 0.5rem;
+            }
+            .content_map {
+            background-color: #b9b9b9;
+            width: 20%;
+            margin: 1rem;
+            }
     </style>
 
 </head>
@@ -116,5 +261,56 @@
         </div>
     </div>
 
+    <div class="main-container">
+        <div class="temp-box_left">
+            <div class="search-category">등산코스 
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="temp-box_right">
+            <div class="search-box">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <div class="search-ex">가을명산</div>
+            </div>
+
+            <div class="recent-box">
+                <div class="recent-text">요즘 뜨는 태그들</div>
+                <div class="hashtag-box">
+                    <div class="hashtag">#가을산</div>
+                    <div class="hashtag">#억새맛집</div>
+                    <div class="hashtag">#블랙야크 100대명산</div>
+                    <div class="hashtag">#충청도산</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="search_result">
+        <div class="result_top">
+          <div class="result_text">
+            <div class="search_value">충청도산</div>
+            에 대한 검색결과 19건
+          </div>
+          <div class="result_sort">
+            <div class="sort_like">· 인기순</div>
+            <div class="sort_views">· 조회순</div>
+            <div class="sort_comment">· 댓글순</div>
+            <div class="sort_alpha">· 가나다순</div>
+          </div>
+        </div>
+        <div class="result_content">
+          <div class="content_img">
+            <img src=https://via.placeholder.com/300 alt="임시이미지"
+            class="mnt_img"/>
+          </div>
+          <div class="content_info">
+            <div class="mnt_name">월악산</div>
+            <div class="mnt_location">충북 충주시 제천시 · 제천시 · 단양군</div>
+            <div class="mnt_height">1,094m</div>
+            <div class="mnt_tags">태그</div>
+          </div>
+          <div class="content_map">지도</div>
+        </div>
+      </div>
 </body>
 </html>
