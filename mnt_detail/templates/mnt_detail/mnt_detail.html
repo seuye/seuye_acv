@@ -226,9 +226,114 @@
             #selected{
                 background-color: white;
                 color: black;
+            }
 
-    </style>
-</head>
+            .contentbox-1{
+                margin: 4rem 2rem 2rem 2rem;
+                border-bottom: 1px solid red;
+                padding-bottom: 4rem;
+                height: fit-content;
+            }
+
+            .title-1{
+                display: flex;
+                border: 1px solid black;
+            }
+
+            .form-check{
+                border: 1px solid black;
+            }
+
+            .titletext-1{
+                font-size: 1.2rem;
+                padding-top: 0.25rem;
+                padding-left: 0.2rem;
+                font-weight: 700;
+            }
+
+            .content-1{
+                display: flex;
+                border: 1px solid black;
+                margin: 2rem 2.7rem ;
+            }
+            
+            .route_str_1_start{
+                padding: 1.2rem 1rem 0rem 1rem;
+            }
+
+            .route_str_1_end{
+                padding: 1.2rem 1rem 0rem 1rem;
+            }
+
+            .return-txt{
+                border:1px solid black;
+                padding-top: 0.4rem ;
+                font-size: 0.25rem;
+            }
+
+            hr{
+                width: 4rem;
+                border: 0.01rem orange;
+                margin-bottom: 0.3rem;
+            }
+            
+            .howtogo-box{
+                border: 1px solid black;
+                margin-left: 26rem;
+                width: fit-content;
+                /* float: right; */
+            }
+
+            .transport{
+                border: 1px solid black;
+                display: flex;
+            }
+
+            .car{
+                display: flex;
+            }
+
+            .kakaoicon{
+                border:0.1rem solid black;
+                width:2.1rem;
+                height:2.1rem;
+                float:left;
+                margin-right: 0.5rem;
+            }
+
+            .navericon{
+                border:0.1rem solid black;
+                width:2.1rem;
+                height:2.1rem;
+                float:left;
+                margin-right: 0.5rem;
+            }
+
+            .car-txt{
+                border:1px solid blue;
+                margin-right: 1.55rem;
+            }
+            .content-2{
+                display: flex;
+                border: 1px solid black;
+                margin: 2rem 2.7rem ;
+            }
+            
+            .route_str_2_start{
+                padding: 1.2rem 1rem 0rem 1rem;
+            }
+
+            .route_str_2_end{
+                padding: 1.2rem 1rem 0rem 1rem;
+            }
+
+            .return-txt{
+                border:1px solid black;
+                padding-top: 0.4rem ;
+                font-size: 0.25rem;
+            }
+
+        </style>
 
 <body>
     <div class ="menubar">
@@ -238,7 +343,7 @@
         </div>
         <div class="middle">Mountain Wiki</div>
         <div class="right">
-            <div class="right_text" style="display: flex;">튜토리얼</div>
+            <div class="right_text" ,style="display: flex;">튜토리얼</div>
             <!-- <div class="right_text" id="login">로그인</div> -->
             <div class="right_button">
                 <div class="button_sign-in">회원가입</div>
@@ -246,7 +351,7 @@
             </div>
         </div>
     </div>
-<!-- css 부터 짜고 필요한 부분에 변수 넣는다. -->
+    <!-- css 부터 짜고 필요한 부분에 변수 넣는다. -->
     <main>
         <div class = "body">
             <div class = "mainimage-box">
@@ -269,7 +374,74 @@
                     <div class="crs", id="selected">최단코스</div>
                     <div class="crs">풍경맛집코스</div>
                     <div class="crs">모험코스</div>
-                    
+                </div>
+                <div class="contentbox-1">
+                    <div class="title-1">
+                        <div class="form-check">
+                            <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            </label>
+                        </div>
+                        <div class="titletext-1">들머리 날머리 (산 입구 출구) 위치 & 가는 법</div>
+                    </div>
+                    <div class="content-1">
+                        <div class="route_str_1_start">{{contents.section_2.route_str_1_start}}</div>
+                        <div class="center-elements">
+                            <div class="return-txt">원점회귀</div>
+                            <hr style="border: orange 1px solid;">
+                        </div>
+                        <div class="route_str_1_end">{{contents.section_2.route_str_1_end}}</div>
+                    </div>
+                    <div class="howtogo-box">
+                        <div class="transport">
+                            <div class="trans-txt">대중교통 가는 법</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="kakaoicon">
+                            <div class="kakao-txt">카카오맵 길찾기</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="navericon">
+                            <div class="naver-txt">네이버지도 길찾기</div>
+                        </div>
+                        <div class="car">
+                            <div class="car-txt">자차(주차장)</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="kakaoicon">
+                            <div class="kakao-txt">카카오맵 길찾기</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="navericon">
+                            <div class="naver-txt">네이버지도 길찾기</div>
+                        </div>
+                    </div>
+                    <div class="content-2">
+                        <div class="route_str_2_start">{{contents.section_2.route_str_2_start}}</div>
+                        <div class="center-elements">
+                            <div class="return-txt">원점회귀</div>
+                            <hr style="border: orange 1px solid;">
+                        </div>
+                        <div class="route_str_2_end">{{contents.section_2.route_str_2_end}}</div>
+                    </div>
+                    <div class="howtogo-box">
+                        <div class="transport">
+                            <div class="trans-txt">대중교통 가는 법</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="kakaoicon">
+                            <div class="kakao-txt">카카오맵 길찾기</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="navericon">
+                            <div class="naver-txt">네이버지도 길찾기</div>
+                        </div>
+                        <div class="car">
+                            <div class="car-txt">자차(주차장)</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="kakaoicon">
+                            <div class="kakao-txt">카카오맵 길찾기</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="navericon">
+                            <div class="naver-txt">네이버지도 길찾기</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentbox-1">
+                    <div class="title-1">
+                        <div class="form-check">
+                            <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            </label>
+                        </div>
+                        <div class="titletext-1">코스</div>
+                    </div>
                 </div>
             </div>
         </div>
