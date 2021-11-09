@@ -9,18 +9,24 @@ let pak_base = 0
 let pak_v1 = 0
 let pak_v2 = 0
 
+var doubleSubmitFlag = false;
+
+
+
 function callinfos(Object) {
+    if (doubleSubmitCheck()) return;
     fetch('/admin_db/api-call/?query='.concat(Object))
         .then((response) => response.json())
         .then((results) => datapack = results)
         .then((datapack) => {
+
             if (datapack.base != "1번 에러") {
                 pak_base = JSON.parse(datapack.base);
             } else {
                 console.log("1번 0 할당");
                 pak_base = ""
             };
-            console.log("1번 확인");
+            console.log(Object, " 1번 확인");
             if (datapack.v1 != "2번 에러") {
                 pak_v1 = datapack.v1;
 
@@ -28,17 +34,17 @@ function callinfos(Object) {
                 console.log("2번 0 할당");
                 pak_v1 = ""
             };
-            console.log("2번 확인");
+            console.log(Object, " 2번 확인");
             if (datapack.v2 != "3번 에러") {
                 pak_v2 = datapack.v2;
             } else {
                 console.log("3번 0 할당");
                 pak_v2 = ""
             };
-            console.log("3번 확인");
+            console.log(Object, "3번 확인");
             //1번 선택
             btnClick("api-0")
-            doubleSubmitCheck()
+            doubleSubmitFlag = false
         })
 }
 
@@ -73,9 +79,7 @@ function btnClick(Object) {
 }
 
 function draw_selection_api(idx) {
-    if (pak_base == 0 | pak_v1 == 0 | pak_v2 == 0) {
-        console.log("값이 선택되지 않았습니다.")
-    } else {
+    if (pak_base != 0 | pak_v1 != 0 | pak_v2 != 0) {
         var n = api_body[0].childElementCount
         while (n > 1) {
             n -= 1;
@@ -120,41 +124,31 @@ function draw_selection_api(idx) {
                 }
             }
         }
+    } else {
+        console.log("값이 선택되지 않았습니다.")
     }
 }
-
 
 function updateTextInput(val) {
     document.getElementById('textInput').value = val;
 }
 
 
-/**
- * 중복서브밋 방지
- * 
- * @returns {Boolean}
- */
-var doubleSubmitFlag = false;
-
-function doubleSubmitCheck() {
-    if (doubleSubmitFlag) {
-        return doubleSubmitFlag;
-    } else {
-        doubleSubmitFlag = true;
-        return false;
-    }
-}
-
-
 function selection_check() {
     console.log("change detected")
-    if (pak_base == 0 | pak_v1 == 0 | pak_v2 == 0) {} else {
+    if (pak_base == 0 && pak_v1 == 0 && pak_v2 == 0) {
+
+    } else {
         if (idx == 0) {
             for (i of pak_base) {
                 if (i["mnt_code"] == api_view[0].children[0].value) {
                     api_view[0].children[2].children[1].value = i["mnt_code"]
                     api_view[0].children[4].children[1].value = i["loc"]
                     api_view[0].children[3].children[1].value = i["mnt_name"]
+                    api_view[0].children[5].children[1].value = ""
+                    api_view[0].children[6].children[1].value = ""
+                    api_view[0].children[7].children[1].value = ""
+                    api_view[0].children[8].children[1].value = ""
                 } else {}
             }
         } else if (idx == 1) {
@@ -163,6 +157,10 @@ function selection_check() {
                     api_view[0].children[2].children[1].value = i["mnt_code"]
                     api_view[0].children[3].children[1].value = i["mnt_name"]
                     api_view[0].children[4].children[1].value = i["mnt_loc_string"]
+                    api_view[0].children[5].children[1].value = ""
+                    api_view[0].children[6].children[1].value = ""
+                    api_view[0].children[7].children[1].value = ""
+                    api_view[0].children[8].children[1].value = ""
                     api_view[0].children[9].children[1].innerHTML = i["mnt_details"]
                 } else {}
             }
@@ -170,7 +168,10 @@ function selection_check() {
             for (i of pak_v2) {
                 if (i["mnt_code"] == api_view[0].children[0].value) {
                     api_view[0].children[2].children[1].value = i["mnt_code"]
+                    api_view[0].children[3].children[1].value = ""
                     api_view[0].children[4].children[1].value = i["mnt_locs"]
+                    api_view[0].children[5].children[1].value = ""
+                    api_view[0].children[6].children[1].value = ""
                     api_view[0].children[7].children[1].value = i["mnt_hght"]
                     api_view[0].children[8].children[1].value = i["mnt_info_s"]
                     api_view[0].children[9].children[1].innerHTML = i["mnt_info_l"]
@@ -180,9 +181,20 @@ function selection_check() {
     }
 }
 
-
 function enterkey() {
     if (window.event.keyCode == 13) {
         callinfos(oApiEntry.value)
+    }
+}
+
+
+
+
+function doubleSubmitCheck() {
+    if (doubleSubmitFlag) {
+        return doubleSubmitFlag;
+    } else {
+        doubleSubmitFlag = true;
+        return false;
     }
 }
