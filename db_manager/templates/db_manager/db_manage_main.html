@@ -1,223 +1,104 @@
-<!DOCTYPE html>
-{% load static %}
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>DB관리 version.0</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5qvggan3zt"></script>
-        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=583339486fc3a9b874ce7501159c3d8d"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href= {% static 'db_manager/db.css' %}>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6 col-md-8">
-                <h1>메인요소 관리 인터페이스</h1>
-                </div>
-                <div class="col-6 col-md-4">
-                
-                </div>
-            </div>
-            <div class="row g-3">
-                <div class="col-sm-6 col-md-8">
-                    <div class="p-3 border bg-light">
+{% extends 'db_manager/db_template.html' %}
+{% block api_searcher %}
+<div class="input-group mb-3">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">DB검색</button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="">마운틴코드로 검색</a></li>
+    <li><a class="dropdown-item" href="#">산 명으로 검색</a></li>
+  </ul>
+  <input type="text" class="form-control" aria-label="Text input with dropdown button", value="mnt_code">
+</div>
+{% endblock api_searcher %}
+{% block db_entry %}
+<script> function updateTextInput(val) { document.getElementById('textInput').value=numberWithCommas(val);
+console.log(numberWithCommas(val))}
+function numberWithCommas(x) {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}</script>
+<div class="row" style="margin_down=10px;margin-bottom: 20px;">
+  <div class="col-md-3">
+      <label for="customRange1" class="form-label">검색: 거리제한 (km단위)</label> <input type="text" id="textInput" style="width:80px; float: right;" value="250000">
+      <input type="range" class="form-range" id="customRange1" min="100000" max="400000" step="10000" onchange="updateTextInput(this.value);">
+  </div>
+  <div class="col-md-9">
+      <select class="form-select",size="4" multiple aria-label="multiple select example">
+      <option selected>검색결과</option>
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
+      </select>
+  </div>
+</div>
+<form class="row g-3">
+  <div class="col-md-6">
+    <div class="form-floating">
+      <input type="db_mnt_code" class="form-control" id="db_mnt_code" readonly >
+      <label for="floatingInput">산 코드</label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-floating">
+      <input type="db_mnt_name" class="form-control" id="db_mnt_name" >
+      <label for="floatingInput">산 이름</label>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" >
+      <label for="floatingInput">주소</label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" >
+      <label for="floatingInput">한줄평</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating">
+      <input type="floatformat" class="form-control" id="cordsLat" >
+      <label for="floatingInput">좌표(위도, lat)</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating">
+      <input type="floatformat" class="form-control" id="cordsLng" >
+      <label for="floatingInput">좌표(경도, lng)</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating">
+      <input type="floatformat" class="form-control" id="zoomLv" >
+      <label for="floatingInput">줌 기준</label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+      <label for="floatingTextarea2">긴줄평</label>
+    </div>
+  </div>
+  <div class="col-md-2"> Naver /  5179
+  </div>
+  <div class="col-md-2"> Kakao /  5181
+  </div>
+  <div class="col-md-2"> google / 3857
+  </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">수정</button>
+  </form>
+{% endblock db_entry %}                
+{% block api_tab %}
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" id="api-0" onClick='btnClick(this.id)' >내부DB</a></li>
+    <li class="nav-item">
+        <a class="nav-link" id="api-1" onClick='btnClick(this.id)' >OpDBv1</a></li>
+    <li class="nav-item">
+        <a class="nav-link" id="api-2" onClick='btnClick(this.id)' >OpDBv2</a></li>
+</ul>
+<div class="col">{% include "db_manager/search_apis.html" %}
+{% endblock api_tab %}
+{% block path_info %}
+"최단코스 path set" 
 
 
+{% endblock path_info %}
 
-                    </div>
-                </div>
-                {% comment %} 왼쪽 openapi 검색 {% endcomment %}
-                <div class="col-6 col-md-4">
-                    <div class="p-3 border bg-light">
-                        {% comment %} 서버기본 mntcode셋 시작 {% endcomment %}
-                        <div class="col">
-                            <h5>자체 mnt_info 검색 결과</h5>
-                            <div class="col">
-                                <select class="form-select form-select-sm" aria-label="openapi_v1_result_select">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                </select>
-                            </div>
-                            <hr>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>코드</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_code" aria-label="mnt_code_base" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>명칭</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_name" aria-label="mnt_name_base" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>행정구역</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_loc_string" aria-label="mnt_loc_string_base" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>기준거리</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_distance" aria-label="mnt_distance_base" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>좌표</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_cords" aria-label="mnt_cords_base" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                        </div>
-                        {% comment %} open v1 끝 {% endcomment %}
-                        {% comment %} open v1 시작 {% endcomment %}
-                        <div class="col">
-                            <h5>Openapi v1 검색 결과</h5>
-                            <div class="col">
-                                <select class="form-select form-select-sm" aria-label="openapi_v1_result_select">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                </select>
-                            </div>
-                            <hr>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>코드</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_code" aria-label="mnt_code_open_v1" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>명칭</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_name" aria-label="mnt_name_open_v1" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>행정구역</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_loc_string" aria-label="mnt_loc_string_open_v1" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>기준거리</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_distance" aria-label="mnt_distance_open_v1" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>좌표</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_cords" aria-label="mnt_cords_open_v1" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <label for="exampleFormControlTextarea1" class="form-label"><b>내부 내용</b></label>
-                                <textarea class="form-control" readonly id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                        </div>
-                        {% comment %} open v1 끝 {% endcomment %}
-                        <hr>
-                        {% comment %} open v2 시작 {% endcomment %}
-                        <div class="col">
-                            <h5>Openapi v2 검색 결과</h5>
-                            <div class="col">
-                                <select class="form-select form-select-sm" aria-label="openapi_v1_result_select">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                </select>
-                            </div>
-                            <hr>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>코드</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_code" aria-label="mnt_code_open_v2" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>명칭</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_name" aria-label="mnt_name_open_v2" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>행정구역</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_loc_string" aria-label="mnt_loc_string_open_v2" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>기준거리</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_distance" aria-label="mnt_distance_open_v2" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><b>좌표</b></span>
-                                <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_cords" aria-label="mnt_cords_open_v2" aria-describedby="basic-addon1"> 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <label for="mnt_details_open_ver2" class="form-label"><b>내부 내용</b></label>
-                                <textarea class="form-control" readonly id="mnt_details_open_ver2" rows="3"></textarea>
-                            </div>
-                        </div>
-                        {% comment %} open v2 끝 {% endcomment %}
-                        <hr>
-                        </div>
-                    </div>                
-                </div>                    
-            </div> 
-
-
-
-               
-
-
-            <div class="container-fluid">
-                <div class="row">
-                <div class="col">
-                    <h4>길1 </h4>
-                    <div id="map_1" style="width:454px;height:454px">Loading : 1</div>
-                </div>
-                <div class="col">
-                    <h4>길1 </h4>
-                    <div id="map_2" style="width:454px;height:454px">Loading : 2</div>
-                </div>
-                <div class="col-2">
-                    <h4>목차이미지</h4>
-                    <div id="map_png" style="width:200px;height:400px">Loading : png</div>
-                </div>
-                <div class="col-2">
-                    <h4>목차페이지</h4>
-                <div id="map_png_check" style="width:200px;height:400px">Loading : check</div>
-                </div>
-            </div>
-        </div>
-        <script>
-
-        
-        </script>
-        <script src= {% static 'db_manager/ncp_map.js' %}></script>
-        '',
-    
-
-    </body>
-</html>
