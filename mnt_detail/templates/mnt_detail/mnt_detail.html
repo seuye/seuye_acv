@@ -103,6 +103,7 @@
                 background-color: rgb(247, 247, 250);
                 margin: 2rem 22rem 0rem 22rem;
                 border-radius: 1.5rem;
+                height: fit-content;
             }
 
             .mainimage-box{
@@ -139,7 +140,7 @@
             .content-box{
                 background-color: white;
                 width:58.5rem;
-                height:100rem;
+                height:fit-content;
                 margin: auto;
                 /* border: 0.1rem solid orange; */
                 border-radius: 2rem;
@@ -254,7 +255,7 @@
             .content-1{
                 display: flex;
                 border: 1px solid black;
-                margin: 2rem 2.7rem ;
+                margin: 2rem 2.1rem ;
             }
             
             .route_str_1_start{
@@ -279,8 +280,10 @@
             
             .howtogo-box{
                 border: 1px solid black;
-                margin-left: 26rem;
+                margin-left: 30rem;
                 width: fit-content;
+                font-size:0.8rem;
+
                 /* float: right; */
             }
 
@@ -311,12 +314,7 @@
 
             .car-txt{
                 border:1px solid blue;
-                margin-right: 1.55rem;
-            }
-            .content-2{
-                display: flex;
-                border: 1px solid black;
-                margin: 2rem 2.7rem ;
+                margin-right: 1.2rem;
             }
             
             .route_str_2_start{
@@ -331,6 +329,35 @@
                 border:1px solid black;
                 padding-top: 0.4rem ;
                 font-size: 0.25rem;
+            }
+
+            .content-2{
+                border: 1px solid black;
+                margin-top: 2rem;
+                margin-left:3.1rem;
+                margin-right:2.1rem;
+                line-height: 2.3rem;
+                font-size:0.9rem;
+                /* padding-left:1rem; */
+            }
+            .ect_info{
+                padding-top: 1rem;
+            }
+
+            .short-map{
+                display: flex;
+                border: 0.1rem solid black;
+                width: fit-content;
+                margin:auto;
+            }
+
+            .short-map_img{
+                margin-top:3rem;
+                border-radius: 1rem;
+            }
+
+            #short-map_img_1{
+                margin-right: 2rem;
             }
 
         </style>
@@ -375,6 +402,7 @@
                     <div class="crs">풍경맛집코스</div>
                     <div class="crs">모험코스</div>
                 </div>
+                <!-- 들머리 날머리 위치 & 가는법 -->
                 <div class="contentbox-1">
                     <div class="title-1">
                         <div class="form-check">
@@ -408,7 +436,7 @@
                             <div class="naver-txt">네이버지도 길찾기</div>
                         </div>
                     </div>
-                    <div class="content-2">
+                    <div class="content-1">
                         <div class="route_str_2_start">{{contents.section_2.route_str_2_start}}</div>
                         <div class="center-elements">
                             <div class="return-txt">원점회귀</div>
@@ -433,6 +461,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 코스 -->
                 <div class="contentbox-1">
                     <div class="title-1">
                         <div class="form-check">
@@ -441,6 +470,20 @@
                             </label>
                         </div>
                         <div class="titletext-1">코스</div>
+                    </div>
+                    <div class="content-2">
+                        <div class="short">- 최단코스1 ({{contents.section_3.short_path_length_1}}km)</div>
+                        <div class="short">{{contents.section_3.short_path_1}}</div>
+                        <div class="short">- 최단코스2 ({{contents.section_3.short_path_length_2}}km)</div>
+                        <div class="short">{{contents.section_3.short_path_2}}</div>
+                        <div class="ect_info">* 인증 정보 (위치는 하단 지도 참조) <br> &nbsp&nbsp&nbsp 관음봉(블랙야크 100대 명산), 동학사(국립공원 스템프 투어)</div>
+                        <div class="short-map">
+                            <img src=https://via.placeholder.com/350/ alt="임시이미지"
+                            class="short-map_img" id="short-map_img_1" />
+                            <img src=https://via.placeholder.com/350 alt="임시이미지"
+                            class="short-map_img"/>
+                        </div>
+
                     </div>
                 </div>
             </div>
