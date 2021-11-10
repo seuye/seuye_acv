@@ -1,0 +1,30 @@
+.form_container {
+    padding-top: 20px;
+    border: 5px solid skyblue;
+    height: 400px;
+}
+
+.map {
+    margin-top: 30px;
+    display: flex;
+}
+
+#map_1 {
+    margin-right: 20px
+}
+
+#map_2 {
+    margin-right: 20px
+}
+
+#map_png {
+    margin-right: 20px
+}
+
+#map_png_check {
+    margin-right: 20px
+}
+
+body {
+    margin: 30px;
+}

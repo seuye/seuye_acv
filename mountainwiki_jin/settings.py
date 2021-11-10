@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     "landing",
     "mnt_detail",
-    "free_board"
+    "free_board",
+    "db_manager"
 ]
 
 MIDDLEWARE = [
