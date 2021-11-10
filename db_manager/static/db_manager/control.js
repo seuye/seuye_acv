@@ -3,15 +3,16 @@ const api_engine = api_con.getElementsByClassName("nav-item")
 const api_body = api_con.getElementsByClassName("form-select")
 const api_view = api_con.getElementsByClassName("api-view")
 const oApiEntry = document.querySelector("#inputApi")
+const dbSearcher = document.getElementById("dbSearch")
 let idx = 0
 let datapack = 0
 let pak_base = 0
 let pak_v1 = 0
 let pak_v2 = 0
+let dbPack = 0
 
 var doubleSubmitFlag = false;
-
-
+var doubleSubmitFlag_db = false;
 
 function callinfos(Object) {
     if (doubleSubmitCheck()) return;
@@ -133,7 +134,6 @@ function updateTextInput(val) {
     document.getElementById('textInput').value = val;
 }
 
-
 function selection_check() {
     console.log("change detected")
     if (pak_base == 0 && pak_v1 == 0 && pak_v2 == 0) {
@@ -183,12 +183,10 @@ function selection_check() {
 
 function enterkey() {
     if (window.event.keyCode == 13) {
+        console.log(enter)
         callinfos(oApiEntry.value)
     }
 }
-
-
-
 
 function doubleSubmitCheck() {
     if (doubleSubmitFlag) {
@@ -197,4 +195,55 @@ function doubleSubmitCheck() {
         doubleSubmitFlag = true;
         return false;
     }
+}
+
+function doubleSubmitCheck_db() {
+    if (doubleSubmitFlag_db) {
+        return doubleSubmitFlag_db;
+    } else {
+        doubleSubmitFlag_db = true;
+        return false;
+    }
+}
+
+
+
+function call_db_name(Object) {
+    if (doubleSubmitCheck_db()) return;
+    fetch('/admin_db/db-name/?query='.concat(Object))
+        .then((response) => response.json())
+        .then((results) => dbPack = results)
+        .then((dbPack) => {
+            dbPack
+            doubleSubmitFlag = false
+            console.log(dbPack)
+        })
+}
+
+function call_db_code(Object) {
+    if (doubleSubmitCheck_db()) return;
+    fetch('/admin_db/db-code/?query='.concat(Object))
+        .then((response) => response.json())
+        .then((results) => dbPack = results)
+        .then((dbPack) => {
+            dbPack
+            doubleSubmitFlag_db = false
+            console.log(dbPack)
+        })
+}
+
+function call_db_gpx(Object) {
+    if (doubleSubmitCheck_db()) return;
+    fetch('/admin_db/gpx-code/?query='.concat(Object))
+        .then((response) => response.json())
+        .then((results) => dbPack_g = results)
+        .then((dbPack_g) => {
+            dbPack_g
+            doubleSubmitFlag_db = false
+        })
+}
+
+function dr_db(dbPack) {
+    dbPack.base_result[0].lat
+    dbPack.base_result[0].lng
 }

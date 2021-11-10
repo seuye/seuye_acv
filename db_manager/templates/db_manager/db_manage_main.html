@@ -1,12 +1,12 @@
 {% extends 'db_manager/db_template.html' %}
 {% block api_searcher %}
-<div class="input-group mb-3">
+<div class="input-group mb-3" id="dbSearch">
   <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">DB검색</button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="">마운틴코드로 검색</a></li>
-    <li><a class="dropdown-item" href="#">산 명으로 검색</a></li>
+    <li><a class="dropdown-item" onClick="call_db_code(dbSearcher.children[2].value);">마운틴코드로 검색</a></li>
+    <li><a class="dropdown-item" onClick="call_db_name(dbSearcher.children[2].value);">산 명으로 검색</a></li>
   </ul>
-  <input type="text" class="form-control" aria-label="Text input with dropdown button", value="mnt_code">
+  <input type="type" class="form-control" aria-label="Text input with dropdown button">
 </div>
 {% endblock api_searcher %}
 {% block db_entry %}
@@ -19,7 +19,7 @@ function numberWithCommas(x) {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/
       <input type="range" class="form-range" id="customRange1" min="100000" max="400000" step="10000" onchange="updateTextInput(this.value);">
   </div>
   <div class="col-md-9">
-      <select class="form-select",size="4" multiple aria-label="multiple select example">
+      <select class="form-select",size="1" multiple aria-label="multiple select example">
       <option selected>검색결과</option>
       <option value="1"></option>
       <option value="2"></option>
@@ -72,7 +72,7 @@ function numberWithCommas(x) {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/
   </div>
   <div class="col-md-6">
     <div class="form-floating">
-      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px"></textarea>
       <label for="floatingTextarea2">긴줄평</label>
     </div>
   </div>
