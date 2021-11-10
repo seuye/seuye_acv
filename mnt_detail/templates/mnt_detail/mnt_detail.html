@@ -1,12 +1,223 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'mnt_detail/css/style.css' %}">
+    <title>계룡산</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5qvggan3zt"></script>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=583339486fc3a9b874ce7501159c3d8d">
+    </script>
+    
 </head>
+
 <body>
-    산 상세정보페이지
-    <h1>{{test.test2}}</h1>
-    <h1>{{contents.section_1.mnt_name}}</h1>
+    <div class ="menubar">
+        <div class="left">
+            <div class="left_text">자유게시판</div>
+            <div class="left_text">등산용품 게시판</div>
+        </div>
+        <div class="middle">Mountain Wiki</div>
+        <div class="right">
+            <div class="right_text" ,style="display: flex;">튜토리얼</div>
+            <!-- <div class="right_text" id="login">로그인</div> -->
+            <div class="right_button">
+                <div class="button_sign-in">회원가입</div>
+                <div class="button_log-in">로그인</div>
+            </div>
+        </div>
+    </div>
+    <!-- css 부터 짜고 필요한 부분에 변수 넣는다. -->
+    <main>
+        <div class = "body">
+            <div class = "mainimage-box">
+                <img src ="{% static 'mnt_detail/assets/detail_image1.png' %}" class="mainimage1" >
+                <img src ="{% static 'mnt_detail/assets/detail_map.png' %}" class="mainimage2" >
+            </div>
+            <div class="content-box">
+                <div class="mnt_name">{{contents.section_1.mnt_name}}</div>
+                <div class=atit>
+                    <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="atiticon">
+                    <div class="mnt_atit">{{contents.section_1.mnt_atit}}</div>
+                </div>
+                <div class="tag-box">
+                {% for tag in contents.section_1.mnt_tag  %}
+                    <div class="tag">{{ tag }}</div>
+                {% endfor %}
+                </div>
+                <p class="info_long">{{contents.section_1.info_long}}</p>
+                <div class="crs-box">
+                    <div class="crs", id="selected">최단코스</div>
+                    <div class="crs">풍경맛집코스</div>
+                    <div class="crs">모험코스</div>
+                </div>
+                <!-- 들머리 날머리 위치 & 가는법 -->
+                <div class="contentbox-1">
+                    <div class="title-1">
+                        <div class="form-check">
+                            <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            </label>
+                        </div>
+                        <div class="titletext-1">들머리 날머리 (산 입구 출구) 위치 & 가는 법</div>
+                    </div>
+                    <div class="content-1">
+                        <div class="route_str_1_start">{{contents.section_2.route_str_1_start}}</div>
+                        <div class="center-elements">
+                            <div class="return-txt">원점회귀</div>
+                            <hr style="border: orange 1px solid;">
+                        </div>
+                        <div class="route_str_1_end">{{contents.section_2.route_str_1_end}}</div>
+                    </div>
+                    <div class="howtogo-box">
+                        <div class="transport">
+                            <div class="trans-txt">대중교통 가는 법</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="kakaoicon">
+                            <div class="kakao-txt">카카오맵 길찾기</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="navericon">
+                            <div class="naver-txt">네이버지도 길찾기</div>
+                        </div>
+                        <div class="car">
+                            <div class="car-txt">자차(주차장)</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="kakaoicon">
+                            <div class="kakao-txt">카카오맵 길찾기</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="navericon">
+                            <div class="naver-txt">네이버지도 길찾기</div>
+                        </div>
+                    </div>
+                    <div class="content-1">
+                        <div class="route_str_2_start">{{contents.section_2.route_str_2_start}}</div>
+                        <div class="center-elements">
+                            <div class="return-txt">원점회귀</div>
+                            <hr style="border: orange 1px solid;">
+                        </div>
+                        <div class="route_str_2_end">{{contents.section_2.route_str_2_end}}</div>
+                    </div>
+                    <div class="howtogo-box">
+                        <div class="transport">
+                            <div class="trans-txt">대중교통 가는 법</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="kakaoicon">
+                            <div class="kakao-txt">카카오맵 길찾기</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="navericon">
+                            <div class="naver-txt">네이버지도 길찾기</div>
+                        </div>
+                        <div class="car">
+                            <div class="car-txt">자차(주차장)</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="kakaoicon">
+                            <div class="kakao-txt">카카오맵 길찾기</div>
+                            <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="navericon">
+                            <div class="naver-txt">네이버지도 길찾기</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 코스 -->
+                <div class="contentbox-1">
+                    <div class="title-1">
+                        <div class="form-check">
+                            <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            </label>
+                        </div>
+                        <div class="titletext-1">코스</div>
+                    </div>
+                    <div class="content-2">
+                        <div class="short">- 최단코스1 ({{contents.section_3.short_path_length_1}}km)</div>
+                        <div class="short">{{contents.section_3.short_path_1}}</div>
+                        <div class="short">- 최단코스2 ({{contents.section_3.short_path_length_2}}km)</div>
+                        <div class="short">{{contents.section_3.short_path_2}}</div>
+                        <div class="ect_info">* 인증 정보 (위치는 하단 지도 참조) <br> &nbsp&nbsp&nbsp 관음봉(블랙야크 100대 명산), 동학사(국립공원 스템프 투어)</div>
+ 
+                        <div class="short-map">
+                            <div id="short-map_img_1" alt="임시이미지"  style="width:300px;height:300px"
+                            class="short-map_img"></div>
+
+                            <div id="short-map_img_2" alt="임시이미지" style="width:300px;height:300px"
+                            class="short-map_img"></div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- 소요시간 -->
+                <div class="contentbox-1">
+                    <div class="title-1">
+                        <div class="form-check">
+                            <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            </label>
+                        </div>
+                        <div class="titletext-1">소요시간</div>
+                    </div>
+                    <div class="content-2">
+                        <div class="short">- 최단코스1(갑사) 평속(2)km/h로 이동 시 ()시간 ()분</div>
+                        <div class="short">- 최단코스2(동학사) 평속(2)km/h로 이동시 ()시간 ()분</div>
+                        <div class="ect_info">* 휴식시간 제외, 본 예상 소요시간은 계절, 날씨, 개인의 산행 스타일에 따라 크게 달라질 수 있으니 참고만 하세요 ^^</div>
+                    </div>
+                </div>
+                <!-- 날씨 -->
+                <div class="contentbox-1">
+                    <div class="title-1">
+                        <div class="form-check">
+                            <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            </label>
+                        </div>
+                        <div class="titletext-1">날씨</div>
+                    </div>
+                </div>
+                <!-- 사진 스팟 -->
+                <div class="contentbox-1">
+                    <div class="title-1">
+                        <div class="form-check">
+                            <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            </label>
+                        </div>
+                        <div class="titletext-1">사진 스팟</div>
+                    </div>
+                    <div class="content-2">
+                        <div class="short-map">
+                            <img src=https://via.placeholder.com/250/ alt="임시이미지"
+                            class="short-map_img" id="short-map_img_1" />
+                            <img src=https://via.placeholder.com/250 alt="임시이미지"
+                            class="short-map_img" id="short-map_img_1" />
+                            <img src=https://via.placeholder.com/250 alt="임시이미지"
+                            class="short-map_img"/>
+                        </div>
+                    </div>
+                </div>
+                <!-- 요금 -->
+                <div class="contentbox-1">
+                    <div class="title-1">
+                        <div class="form-check">
+                            <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                            </label>
+                        </div>
+                        <div class="titletext-1">요금</div>
+                    </div>
+                    <div class="content-2">
+                        <div class="short">- 최단코스1 ({{contents.section_7.short_pt1}})</div>
+                        <div class="short">{{contents.section_3.map_route}}</div>
+                        <div class="short">- 최단코스2 ({{contents.section_3.short_path_length_2}}km)</div>
+                        <div class="short">{{contents.section_3.short_path_2}}</div>
+                        <div class="ect_info">* 인증 정보 (위치는 하단 지도 참조) <br> &nbsp&nbsp&nbsp 관음봉(블랙야크 100대 명산), 동학사(국립공원 스템프 투어)</div>
+                        <div class="short-map">
+                            <img src=https://via.placeholder.com/350/ alt="임시이미지"
+                            class="short-map_img" id="short-map_img_1" />
+                            <img src=https://via.placeholder.com/350 alt="임시이미지" id="short-map_img_2"
+                            class="short-map_img"/>
+                        </div>
+                    </div>
+                </div>
+                <!-- 주변 맛집 -->
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'mnt_detail/js/map_naka.js' %}"></script>
 </body>
 </html>
