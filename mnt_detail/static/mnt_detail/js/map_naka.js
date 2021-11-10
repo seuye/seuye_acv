@@ -57,7 +57,7 @@ function mapping(input){
 
 
 
-        var map_2 = new naver.maps.Map('short-map_img_2', {
+        var map = new naver.maps.Map('short-map_img_2', {
                 center: target_mountain_2,
                 zoom: 10,
                 minZoom: 3,
