@@ -22,6 +22,7 @@ import db_manager
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("admin_db/", include('db_manager.urls'), name='db_manager'),
     path('accounts/', include('allauth.urls')),
     path("free_board/", include('free_board.urls')),
     path("detail/", include("mnt_detail.urls")),
