@@ -303,10 +303,3 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/django,pycharm,visualstudiocode,windows
 .DS_Store
-mountainwiki_jin/__pycache__/__init__.cpython-39.pyc
-mountainwiki_jin/__pycache__/settings.cpython-39.pyc
-.gitignore
-.DS_Store
-.DS_Store
-mountainwiki_jin/__pycache__/__init__.cpython-39.pyc
-mountainwiki_jin/__pycache__/settings.cpython-39.pyc
