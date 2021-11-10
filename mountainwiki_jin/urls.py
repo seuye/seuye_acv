@@ -27,5 +27,6 @@ urlpatterns = [
     path("detail/", include("mnt_detail.urls")),
     path("admin_db/", include('db_manager.urls'), name='db_manager'),
     path("", include("landing.urls")),
+    path("", include("search_results.urls")),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

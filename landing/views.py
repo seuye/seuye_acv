@@ -3,17 +3,12 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.urls import reverse
 import requests
 
-
-
-# json=requests.get("http://34.64.157.240:8000/details/default")
-
-
 # Create your views here.
 def index(request):
     return render(request, "landing/index.html")
 
 def landing(request):
-    return render(request, "landing/landing.html", context)
+    return render(request, "landing/landing.html")
 
 from landing.models import Post
 
