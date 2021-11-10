@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ca=+wj#5+l((07+*19*kujnlf%79zwj0lohp5xnc$gmlw+9-e5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True 
 
 ALLOWED_HOSTS = []
 
@@ -48,11 +48,10 @@ INSTALLED_APPS = [
     "landing",
     "mnt_detail",
     "free_board",
-<<<<<<< HEAD
-    "db_manager"
-=======
-    "search_results"
->>>>>>> 11f9abfc534f5d4bc9253e68af58a5f703e4a1cb
+    "db_manager",
+    "search_results",
+    'free_board',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -120,9 +119,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -146,7 +145,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthendticationBackend',
 ]
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
