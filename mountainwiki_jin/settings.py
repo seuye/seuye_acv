@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+<<<<<<< HEAD
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -50,6 +51,10 @@ INSTALLED_APPS = [
     "free_board",
     "db_manager",
     "search_results",
+=======
+    'free_board',
+    'accounts',
+>>>>>>> aa63765a40cfd54610cc5a72dfbfea0c12780f34
 ]
 
 MIDDLEWARE = [
