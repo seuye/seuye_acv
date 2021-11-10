@@ -50,11 +50,6 @@ INSTALLED_APPS = [
     "free_board",
     "db_manager",
     "search_results",
-<<<<<<< HEAD
-    'free_board',
-    'accounts',
-=======
->>>>>>> 0edbfe53701c76d53e68635dfb06339452eda0eb
 ]
 
 MIDDLEWARE = [
