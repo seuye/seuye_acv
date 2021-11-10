@@ -305,4 +305,8 @@ $RECYCLE.BIN/
 .DS_Store
 mountainwiki_jin/__pycache__/__init__.cpython-39.pyc
 mountainwiki_jin/__pycache__/settings.cpython-39.pyc
+.gitignore
 .DS_Store
+.DS_Store
+mountainwiki_jin/__pycache__/__init__.cpython-39.pyc
+mountainwiki_jin/__pycache__/settings.cpython-39.pyc
