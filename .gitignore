@@ -301,6 +301,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-.DS_Store
 
 # End of https://www.toptal.com/developers/gitignore/api/django,pycharm,visualstudiocode,windows
+.DS_Store
+mountainwiki_jin/__pycache__/__init__.cpython-39.pyc
+mountainwiki_jin/__pycache__/settings.cpython-39.pyc
+.DS_Store

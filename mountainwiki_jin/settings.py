@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     "landing",
     "mnt_detail",
     "free_board",
-    "search_results"
+    "search_results",
+    "db_manager"
 ]
 
 MIDDLEWARE = [

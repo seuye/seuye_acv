@@ -1,0 +1,34 @@
+<div class="api-view">
+    <select class="form-select form-select-sm" aria-label="result_select" onchange="selection_check()" style="margin-top: 2px;">
+    <option selected>아직 검색되지 않았습니다.</option>
+    {% comment %} <option value="1">아직 검색되지 않았습니다.</option> {% endcomment %}
+    </select>
+    <hr>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><b>코드</b></span>
+    <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_code_value" aria-label="mnt_code_value" aria-describedby="basic-addon1"></div>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><b>명칭</b></span>
+    <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_name_value" aria-label="mnt_name_value" aria-describedby="basic-addon1"></div>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><b>행정구역</b></span>
+    <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_loc_string_value" aria-label="mnt_loc_string_base" aria-describedby="basic-addon1"></div>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><b>기준거리</b></span>
+    <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_distance_value" aria-label="mnt_distance_base" aria-describedby="basic-addon1"></div>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><b>좌표</b></span>
+    <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_cords_value" aria-label="mnt_cords_base" aria-describedby="basic-addon1"></div>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><b>높이</b></span>
+    <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_high_value" aria-label="mnt_high_base" aria-describedby="basic-addon1"></div>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><b>요약</b></span>
+    <input type="text" class="form-control form-control-sm" readonly placeholder="mnt_info_value" aria-label="mnt_info_base" aria-describedby="basic-addon1"></div>
+    <div class="col">
+    <label for="mnt_details" class="form-label"><b>내부 내용</b></label>
+    <textarea class="form-control" readonly id="mnt_details" rows="5"> mnt_details_contents </textarea>
+    </div>
+</div>
+
+

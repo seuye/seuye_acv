@@ -1,0 +1,104 @@
+{% extends 'db_manager/db_template.html' %}
+{% block api_searcher %}
+<div class="input-group mb-3" id="dbSearch">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">DB검색</button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" onClick="call_db_code(dbSearcher.children[2].value);">마운틴코드로 검색</a></li>
+    <li><a class="dropdown-item" onClick="call_db_name(dbSearcher.children[2].value);">산 명으로 검색</a></li>
+  </ul>
+  <input type="type" class="form-control" aria-label="Text input with dropdown button">
+</div>
+{% endblock api_searcher %}
+{% block db_entry %}
+<script> function updateTextInput(val) { document.getElementById('textInput').value=numberWithCommas(val);
+console.log(numberWithCommas(val))}
+function numberWithCommas(x) {return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}</script>
+<div class="row" style="margin_down=10px;margin-bottom: 20px;">
+  <div class="col-md-3">
+      <label for="customRange1" class="form-label">검색: 거리제한 (km단위)</label> <input type="text" id="textInput" style="width:80px; float: right;" value="250000">
+      <input type="range" class="form-range" id="customRange1" min="100000" max="400000" step="10000" onchange="updateTextInput(this.value);">
+  </div>
+  <div class="col-md-9">
+      <select class="form-select",size="1" multiple aria-label="multiple select example">
+      <option selected>검색결과</option>
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
+      </select>
+  </div>
+</div>
+<form class="row g-3">
+  <div class="col-md-6">
+    <div class="form-floating">
+      <input type="db_mnt_code" class="form-control" id="db_mnt_code" readonly >
+      <label for="floatingInput">산 코드</label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-floating">
+      <input type="db_mnt_name" class="form-control" id="db_mnt_name" >
+      <label for="floatingInput">산 이름</label>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" >
+      <label for="floatingInput">주소</label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" >
+      <label for="floatingInput">한줄평</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating">
+      <input type="floatformat" class="form-control" id="cordsLat" >
+      <label for="floatingInput">좌표(위도, lat)</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating">
+      <input type="floatformat" class="form-control" id="cordsLng" >
+      <label for="floatingInput">좌표(경도, lng)</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating">
+      <input type="floatformat" class="form-control" id="zoomLv" >
+      <label for="floatingInput">줌 기준</label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px"></textarea>
+      <label for="floatingTextarea2">긴줄평</label>
+    </div>
+  </div>
+  <div class="col-md-2"> Naver /  5179
+  </div>
+  <div class="col-md-2"> Kakao /  5181
+  </div>
+  <div class="col-md-2"> google / 3857
+  </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">수정</button>
+  </form>
+{% endblock db_entry %}                
+{% block api_tab %}
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" id="api-0" onClick='btnClick(this.id)' >내부DB</a></li>
+    <li class="nav-item">
+        <a class="nav-link" id="api-1" onClick='btnClick(this.id)' >OpDBv1</a></li>
+    <li class="nav-item">
+        <a class="nav-link" id="api-2" onClick='btnClick(this.id)' >OpDBv2</a></li>
+</ul>
+<div class="col">{% include "db_manager/search_apis.html" %}
+{% endblock api_tab %}
+{% block path_info %}
+"최단코스 path set" 
+
+
+{% endblock path_info %}
+
