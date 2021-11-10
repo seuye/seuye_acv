@@ -1,25 +1,34 @@
-{% load static %}
 <!doctype html>
 <html lang="ko">
 <head>
+    {% load static %}
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-    <!-- pybo CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    <title>Hello, pybo!</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 </head>
+
 <body>
-{% include "navbar.html" %}
+    <nav>
+        <div class="left">
+            <a id="lefttext" href="#">자유게시판</a>
+            <a id="lefttext" href="#">등산용품 게시판</a>
+        </div>
+        <div class="middle">Mountain Wiki</div>
+        <div class="right">
+            <a class="right_text">튜토리얼</a>
+            <!-- <div class="right_text" id="login">로그인</div> -->
+            <div class="right_button">
+                <a class="active" id="button_sign-in" href="#">회원가입</a>
+                <a id="button_log-in" href="#">로그인</a>
+            </div>
+        </div>
+    </nav>
+    <!-- <hr> -->
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 {% block content %}
 {% endblock %}
 <!-- 기본 템플릿 안에 삽입될 내용 End -->
-<!-- jQuery JS -->
-<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
-<!-- Bootstrap JS -->
-<script src="{% static 'bootstrap.min.js' %}"></script>
+
 </body>
 </html>
