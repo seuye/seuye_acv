@@ -1,0 +1,19 @@
+
+<h1>Log In</h1>
+{% if error %}
+<h4>{{ error }}</h4>
+{% endif %}
+<form method="post" action="{% url 'accounts:login' %}">
+    {% csrf_token %}
+    <div>
+        <label for="username"></label>
+        <input id="username" type="text" name="username" placeholder="아이디">
+    </div>
+    <div>
+        <label for="password"></label>
+        <input id="password" type="password" name="password" placeholder="비밀번호">
+    </div>
+    <div>
+        <button type="submit">로그인</button>
+    </div>
+</form>

@@ -22,11 +22,11 @@ import db_manager
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("admin_db/", include('db_manager.urls'), name='db_manager'),
     path('accounts/', include('allauth.urls')),
     path("free_board/", include('free_board.urls')),
     path("detail/", include("mnt_detail.urls")),
-    path("admin_db/", include('db_manager.urls'), name='db_manager'),
-    path("", include("landing.urls")),
+    # path("", include("landing.urls")),
     path("", include("search_results.urls")),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

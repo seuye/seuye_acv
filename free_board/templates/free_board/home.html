@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>free_board_home</title>
+    <title>Free Board Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <link rel='stylesheet' href="{% static 'free_board/home.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link href="/static/images" rel="" />
+</head>
+<body>
+
 </head>
 <body>
 <!--먼저 콘테이너를 짜고 패딩 등등 설정, 포스트 라이트문서를 만들어서 여기에 불러와서 제목만 표기하고 링크를 걸어서 포스트를 볼수있게-->
@@ -23,26 +33,40 @@
         </div>
     </div>
 </div>
-
 <div class="container">
-    <ol>
+    <br>
+        <h1> 자유게시판 </h1>
         <br>
-<h1> 자유게시판 </h1>
-<br>
-<h4> 전체글 </h4>
-    <div class="box1">
-    
-        <hr size="1px", width="100%" color="#E8E8E8" >
-            
-        <p>
-            <li><a href="/free_board/home/">제목</a></li>
-        </p>
-            
-        <hr size="1px", width="100%" color="#E8E8E8" >
-    
+        <h4> 전체글 </h4>
+        <hr size="1px", width="100%" color="#E8E8E8">
+    {% if post_list %}
+        {% for post in post_list %}
+        <div class="box1">
+            <p>
+                <a href="/free_board/post-view/{{ post.id }}" >{{ post.title }}</a>
+                <span class="edit-delete-botton">
+                    <a href="/free_board/post-edit/{{ post.id }}/"> 
+                    <img src="{% static 'free_board/images/Group.png' %}" style="size: 16px;"> 수정</a> 
+                    <a href="/free_board/post-delete/{{ post.id }}/">
+                    <img src="{% static 'free_board/images/ion_trash-bin.png' %}" style="size: 16px;"> 삭제</a>
+                </span>
+            </p>
+
+            <hr size="1px", width="100%" color="#E8E8E8">
         </div>
-    </border> 
-    </ol>
+        {% endfor %}
+    {% else %}
+    <h4> 아직 글이 없어요 럭키~ 첫 글의 주인공이 되어보세요! &nbsp; :) </h4>
+    {% endif %}
+
+    <a href="/free_board/write/" style="text-decoration: none; color: white;" > 
+    <div class="free-board-botton" style="padding-top: 10px; box-sizing: border-box;">
+        글쓰기
+    </div>
+    </a>
 </div>
+
+
+
 </body>
 </html>
