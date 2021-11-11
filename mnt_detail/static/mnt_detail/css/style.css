@@ -146,14 +146,14 @@ body{
 
  .atit{
      display: flex;
-     border:0.1rem solid black;
+     /* border:0.1rem solid black; */
      margin: 0.3rem 2rem 0 2rem;
      font-size: 1.7rem;
      width: fit-content;
              }
 
  .atiticon{
-     border:0.1rem solid black;
+     /* border:0.1rem solid black; */
      width:2.4rem;
      height:2.4rem;
      float:left;
@@ -161,12 +161,12 @@ body{
  }
 
  .mnt_atit{
-     border:0.1rem solid black;
+     /* border:0.1rem solid black; */
      padding-top: 0.3rem;
  }
 
  .tag-box{
-     border:1px solid black;
+     /* border:1px solid black; */
      display: flex;
      margin:2.5rem 2rem 1.5rem 2rem;
      width: fit-content;
@@ -180,12 +180,13 @@ body{
      padding:0.4rem 0.7rem 0.4rem 0.7rem;
      font-size: 0.9rem;
      font-weight: bold;
+     border-radius: 0.5rem;
      color: rgb(67, 77, 85);
  }
  
  .info_long{
      margin:0 2rem 2rem 2rem;
-     border:1px solid black;
+     /* border:1px solid black; */
      border-radius: 2rem;
      padding: 1.8rem 1.5rem 1.8rem 1.5rem;
      background-color: rgb(242, 245, 248);
@@ -225,11 +226,11 @@ body{
 
  .title-1{
      display: flex;
-     border: 1px solid black;
+     /* border: 1px solid black; */
  }
 
  .form-check{
-     border: 1px solid black;
+     /* border: 1px solid black; */
  }
 
  .titletext-1{
@@ -241,7 +242,7 @@ body{
 
  .content-1{
      display: flex;
-     border: 1px solid black;
+     /* border: 1px solid black; */
      margin: 2rem 2.1rem ;
  }
  
@@ -254,7 +255,7 @@ body{
  }
 
  .return-txt{
-     border:1px solid black;
+     /* border:1px solid black; */
      padding-top: 0.4rem ;
      font-size: 0.25rem;
  }
@@ -266,7 +267,7 @@ body{
  }
  
  .howtogo-box{
-     border: 1px solid black;
+     /* border: 1px solid black; */
      margin-left: 30rem;
      width: fit-content;
      font-size:0.8rem;
@@ -275,7 +276,7 @@ body{
  }
 
  .transport{
-     border: 1px solid black;
+     /* border: 1px solid black; */
      display: flex;
  }
 
@@ -284,7 +285,7 @@ body{
  }
 
  .kakaoicon{
-     border:0.1rem solid black;
+     /* border:0.1rem solid black; */
      width:2.1rem;
      height:2.1rem;
      float:left;
@@ -292,7 +293,7 @@ body{
  }
 
  .navericon{
-     border:0.1rem solid black;
+     /* border:0.1rem solid black; */
      width:2.1rem;
      height:2.1rem;
      float:left;
@@ -300,7 +301,7 @@ body{
  }
 
  .car-txt{
-     border:1px solid blue;
+     /* border:1px solid blue; */
      margin-right: 1.2rem;
  }
  
@@ -313,13 +314,13 @@ body{
  }
 
  .return-txt{
-     border:1px solid black;
+     /* border:1px solid black; */
      padding-top: 0.4rem ;
      font-size: 0.25rem;
  }
 
  .content-2{
-     border: 1px solid black;
+     /* border: 1px solid black; */
      margin-top: 2rem;
      margin-left:3.1rem;
      margin-right:2.1rem;
@@ -333,7 +334,7 @@ body{
 
  .short-map{
      display: flex;
-     border: 0.1rem solid black;
+     /* border: 0.1rem solid black; */
      width: fit-content;
      margin:auto;
  }
