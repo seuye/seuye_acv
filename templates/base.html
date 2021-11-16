@@ -6,20 +6,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
         <div class="left">
-            <a class="lefttext" href="#">자유게시판</a>
+            <a class="lefttext" href="/free_board/home/">자유게시판</a>
             <a class="lefttext" href="#">등산용품 게시판</a>
         </div>
-        <div class="middle">Mountain Wiki</div>
+        <a class="middle" href="/landing/">Mountain Wiki</a>
         <div class="right">
             <a class="right_text">튜토리얼</a>
             <!-- <div class="right_text" id="login">로그인</div> -->
             <div class="right_button">
                 <a id="button_sign-in" href="#">회원가입</a>
                 <a id="button_log-in" href="#">로그인</a>
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                 </label>
             </div>
         </div>
     </nav>

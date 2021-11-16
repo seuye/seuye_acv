@@ -3,7 +3,8 @@ var map1_x=36.666805;
 var map1_y=127.9784147;
 var map2_x=36.666805;
 var map2_y=127.9784147;
-
+var lnglat=[]
+var markerList = [];
 
 
 
@@ -21,7 +22,7 @@ var HOME_PATH = window.HOME_PATH || '.';
 // }
 window.onload = function call_db_name() {
     // if (doubleSubmitCheck_db()) return;
-    fetch('/detail/api-call/?query='.concat(488605302))
+    fetch('/detail/gpx-code/?query='.concat(700007))
         .then((response) => response.json())
         .then((results) => dbPack = results)
         .then((dbPack) => {
@@ -33,39 +34,71 @@ window.onload = function call_db_name() {
 
 
 function mapping(input){
-    map1_x=input.base_result[0].lat
-    map1_y=input.base_result[0].lng
-    map2_x=input.base_result[0].lat
-    map2_y=input.base_result[0].lng
+    for (i of dbPack.toil){
+        console.log(i)
+        lnglat.push(new naver.maps.LatLng(i.lat,i.lng))
+    }
+    console.log(lnglat)
+    map1_x=input.lat
+    map1_y=input.lng
+    map2_x=input.lat
+    map2_y=input.lng
     var target_mountain_1 = new naver.maps.LatLng(map1_x,map1_y );
     var target_mountain_2 = new naver.maps.LatLng(map2_x, map2_y);
     var target_m1 = new naver.maps.LatLng(map1_x, map1_y);
     var target_m2 = new naver.maps.LatLng(map2_x, map2_y);
 
 
-        var map = new naver.maps.Map('short-map_img_1', {
+        var map_1 = new naver.maps.Map('short-map_img_1', {
             center: target_mountain_1,
             mapTypeId: naver.maps.MapTypeId.HYBRID,
             zoom: 14,
-            minZoom: 14,
+            minZoom: 9,
             maxZoom: 12,
         }),
-        marker_2 = new naver.maps.Marker({
-            map: map,
+        marker_1 = new naver.maps.Marker({
+            map: map_1,
             position: target_m1,
         });
 
+        for (var i=0, ii=lnglat.length; i<ii; i++) {
+                marker_toil = new naver.maps.Marker({
+                map: map_1,
+                draggable: false,
+                // icon: {
+                //     url: 'https://storage.googleapis.com/cloud_moa/korea/blackyk.png',
+                //     size: new naver.maps.Size(100, 100),
+                //     origin: new naver.maps.Point(0, 0),
+                //     anchor: new naver.maps.Point(11, 35)
+                // },
+                position:lnglat[i],
+                
+                });
+            marker_toil.set('seq', i);
+
+            markerList.push(marker_toil);
+
+            icon = null;
+            marker = null;
+        
+            };
 
 
-        var map = new naver.maps.Map('short-map_img_2', {
+        var map_2 = new naver.maps.Map('short-map_img_2', {
                 center: target_mountain_2,
                 zoom: 10,
                 minZoom: 3,
                 maxZoom: 12,
             }),
-            marker_default = new naver.maps.Marker({
-                map: map_center,
+            marker_toil = new naver.maps.Marker({
+                map: map_2,
                 draggable: false,
+                icon: {
+                    url: 'https://storage.googleapis.com/cloud_moa/korea/blackyk.png',
+                    size: new naver.maps.Size(100, 100),
+                    origin: new naver.maps.Point(0, 0),
+                    anchor: new naver.maps.Point(11, 35)
+                },
                 position: target_m2,
             });
 

@@ -5,7 +5,7 @@
     {% block content %}
     {% load static %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
     <link
      rel="stylesheet"
@@ -22,98 +22,76 @@
 
     <main>
         <div class="main-container">
-            <!-- <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown button
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </div> -->
-              
-            <div class="temp-box_left">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="search-category" data-bs-toggle="dropdown" aria-expanded="false">등산코스&nbsp;&nbsp;</button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">트레킹 코스</div>
-                    <!-- <div class="modal" id="exampleModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Modal title</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              <p>Modal body text goes here.</p>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                          </div>
-                        </div>
-                    </div> -->
-                    <a class="dropdown-item" >도보여행(올레길)</a>
-                    <a class="dropdown-item" >달리기 코스</a>
-                </div>
-            </div>
-
-            <div class="temp-box_right">
-                <div class="search-box">
-                    <i class="fa fa-search fa-2x"  aria-hidden="true" onclick="location.href='/search_results/'" ></i>
-                    <div class="search-ex">가을명산</div>
-                </div>
-
-                <div class="recent-box">
-                    <div class="recent-text">요즘 뜨는 태그들</div>
-                    <div class="hashtag-box">
-                        <div class="hashtag">#가을산</div>
-                        <div class="hashtag">#억새맛집</div>
-                        <div class="hashtag">#블랙야크 100대명산</div>
-                        <div class="hashtag">#충청도산</div>
+            <div class="row1">
+                <div class="temp-box_left">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="search-category" data-bs-toggle="dropdown" aria-expanded="false">등산코스&nbsp;&nbsp;</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">트레킹 코스</div>
+                        <a class="dropdown-item" >도보여행(올레길)</a>
+                        <a class="dropdown-item" >달리기 코스</a>
                     </div>
                 </div>
 
+                <div class="temp-box_right">
+                    <div class="d-flex">
+                        <form action="" method="get">
+                            {% csrf_token %}
+                            <input id="search-box" class="form-control rounded-pill"  name="query" type="search" placeholder="지리산, 단풍명소, 일출산행" aria-label="Search">
+                            <button id="search-btn" class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                        <!-- <i class="fa fa-search fa-2x"  aria-hidden="true" onclick="location.href='/search_results/'" ></i> -->
+                        <!-- <div class="search-ex">가을명산</div> -->
+                
+
+                    <div class="recent-box">
+                        <div class="recent-text">요즘 뜨는 태그들</div>
+                        <div class="hashtag-box">
+                            <div class="hashtag">#가을산</div>
+                            <div class="hashtag">#억새맛집</div>
+                            <div class="hashtag">#블랙야크 100대명산</div>
+                            <div class="hashtag">#충청도산</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-
-    </main>
-
     
-    <div class="slideshow-container">
-        <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <div class="banner-image-container">
-                <img src="{% static 'landing/assets/mainpage_photo3.jpg' %}" class="banner-image" >
-            </div>
-            <div class="text">Caption Text</div>
-        </div>
-        <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <!-- <div class="banner-image-container"> -->
-                <img src="{% static 'landing/assets/mainpage_photo1.jpg' %}" class="banner-image" >
-            <!-- </div> -->
-            <div class="text">Caption Two</div>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <!-- <div class="banner-image-container"> -->
-                <img src="{% static 'landing/assets/mainpage_photo2.jpg' %}" class="banner-image" >
-            <!-- <div> -->
-            <div class="text">Caption Three</div>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <div class="banner-image-container">
+                        <img src="{% static 'landing/assets/mainpage_photo3.jpg' %}" class="banner-image" >
+                    </div>
+                    <div class="text">Caption Text</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <!-- <div class="banner-image-container"> -->
+                        <img src="{% static 'landing/assets/mainpage_photo1.jpg' %}" class="banner-image" >
+                    <!-- </div> -->
+                    <div class="text">Caption Two</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <!-- <div class="banner-image-container"> -->
+                        <img src="{% static 'landing/assets/mainpage_photo2.jpg' %}" class="banner-image" >
+                    <!-- <div> -->
+                    <div class="text">Caption Three</div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
         </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <br>
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
+    </main>
 
     <script src="{% static 'landing/js/scripts.js' %}"></script>
 </body>

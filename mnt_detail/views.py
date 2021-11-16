@@ -20,13 +20,13 @@ def mnt_detail(request):
 def admin_gpx_code(request):
     query = request.GET.get("query")
     #query=parse.quote(query)
-    url="http://34.64.157.240:8000/admin/call/mnt_code/?gpx_code="+query
+    url="http://34.64.157.240:8000/details/map/?major_mnt_code="+query
     json_string=requests.get(url)
     return JsonResponse(json_string.json(),safe=False)
 
-def admin_base_code(request):
-    query = request.GET.get("query")
-    #query=parse.quote(query)
-    url="http://34.64.157.240:8000/admin/call/mnt_code/?mnt_code="+query
-    json_string=requests.get(url)
-    return JsonResponse(json_string.json(),safe=False)
+# def admin_base_code(request):
+#     query = request.GET.get("query")
+#     #query=parse.quote(query)
+#     url="http://34.64.157.240:8000/admin/call/mnt_code/?mnt_code="+query
+#     json_string=requests.get(url)
+#     return JsonResponse(json_string.json(),safe=False)

@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% extends 'base.html' %}
+    {% block content %}
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,22 +19,6 @@
 </head>
 
 <body>
-    <div class ="menubar">
-        <div class="left">
-            <div class="left_text">자유게시판</div>
-            <div class="left_text">등산용품 게시판</div>
-        </div>
-        <div class="middle">Mountain Wiki</div>
-        <div class="right">
-            <div class="right_text" ,style="display: flex;">튜토리얼</div>
-            <!-- <div class="right_text" id="login">로그인</div> -->
-            <div class="right_button">
-                <div class="button_sign-in">회원가입</div>
-                <div class="button_log-in">로그인</div>
-            </div>
-        </div>
-    </div>
-    <!-- css 부터 짜고 필요한 부분에 변수 넣는다. -->
     <main>
         <div class = "body">
             <div class = "mainimage-box">
@@ -202,15 +188,14 @@
                     </div>
                     <div class="content-2">
                         <div class="short">- 최단코스1 ({{contents.section_7.short_pt1}})</div>
-                        <div class="short">{{contents.section_3.map_route}}</div>
-                        <div class="short">- 최단코스2 ({{contents.section_3.short_path_length_2}}km)</div>
-                        <div class="short">{{contents.section_3.short_path_2}}</div>
-                        <div class="ect_info">* 인증 정보 (위치는 하단 지도 참조) <br> &nbsp&nbsp&nbsp 관음봉(블랙야크 100대 명산), 동학사(국립공원 스템프 투어)</div>
-                        <div class="short-map">
-                            <img src=https://via.placeholder.com/350/ alt="임시이미지"
-                            class="short-map_img" id="short-map_img_1" />
-                            <img src=https://via.placeholder.com/350 alt="임시이미지" id="short-map_img_2"
-                            class="short-map_img"/>
+                        <div class="ect_info"> &nbsp; &nbsp;- 주차비 {{contents.section_7.p1_cost_car}}원(일반 승용차,{{contents.section_7.p1_cost_car_valid}}기준)
+                            <br>&nbsp; &nbsp;- 입장료 {{contents.section_7.p1_cost_enter}}원(성인,{{contents.section_7.p1_cost_enter_valid}}기준)</div>
+                        <br>
+                        <div class="short">- 최단코스2 ({{contents.section_4.short_path_2_name}})</div>
+                        <div class="ect_info"> &nbsp; &nbsp;- 주차비 {{contents.section_7.p2_cost_car}}원(일반 승용차,{{contents.section_7.p2_cost_car_valid}}기준)
+                            <br>&nbsp; &nbsp;- 입장료 {{contents.section_7.p2_cost_enter}}원(성인,{{contents.section_7.p2_cost_enter_valid}}기준)</div>
+                        <div class="ect_info">* {{contents.section_7.cost_etc}} </div>
+
                         </div>
                     </div>
                 </div>
@@ -220,4 +205,5 @@
     </main>
     <script src="{% static 'mnt_detail/js/map_naka.js' %}"></script>
 </body>
+{% endblock %}
 </html>
