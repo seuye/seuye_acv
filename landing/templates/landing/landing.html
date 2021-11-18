@@ -5,115 +5,149 @@
     {% block content %}
     {% load static %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
     <link
      rel="stylesheet"
      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
 </head>
 <body>
-        <div class ="banner">
-            <div class="banner_text">아직 베타서비스 중이라 준비중인 기능이 많습니다.</div>
-        </div>
+    <div class ="banner">
+        <div class="banner_text">아직 베타서비스 중이라 준비중인 기능이 많습니다.</div>
+    </div>
 
     <main>
         <div class="main-container">
-            <!-- <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown button
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </div> -->
-              
-            <div class="temp-box_left">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="search-category" data-bs-toggle="dropdown" aria-expanded="false">등산코스&nbsp;&nbsp;</button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">트레킹 코스</div>
-                    <!-- <div class="modal" id="exampleModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Modal title</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              <p>Modal body text goes here.</p>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                          </div>
-                        </div>
-                    </div> -->
-                    <a class="dropdown-item" >도보여행(올레길)</a>
-                    <a class="dropdown-item" >달리기 코스</a>
-                </div>
-            </div>
-
-            <div class="temp-box_right">
-                <div class="search-box">
-                    <i class="fa fa-search fa-2x"  aria-hidden="true" onclick="location.href='/search_results/'" ></i>
-                    <div class="search-ex">가을명산</div>
-                </div>
-
-                <div class="recent-box">
-                    <div class="recent-text">요즘 뜨는 태그들</div>
-                    <div class="hashtag-box">
-                        <div class="hashtag">#가을산</div>
-                        <div class="hashtag">#억새맛집</div>
-                        <div class="hashtag">#블랙야크 100대명산</div>
-                        <div class="hashtag">#충청도산</div>
+            <div class="row1">
+                <div class="temp-box_left">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="search-category" data-bs-toggle="dropdown" aria-expanded="false">등산코스&nbsp;&nbsp;</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">트레킹 코스</div>
+                        <a class="dropdown-item" >도보여행(올레길)</a>
+                        <a class="dropdown-item" >달리기 코스</a>
                     </div>
                 </div>
 
+                <div class="temp-box_right">
+                    <div class="d-flex">
+                        <form action="/search_results/" method="get">
+                            <input id="search-box"class="form-control rounded-pill"  name="query" type="search" placeholder="지리산, 단풍명소, 일출산행" aria-label="Search" >
+                            <button class="search-btn"  type="submit">
+                                <img class="search-btn-img" src="{% static 'landing/assets/search-arrow.jpg' %}" >
+                            </button>
+                        </form>
+                    </div>
+
+            
+                    <div class="recent-box">
+                        <div class="recent-text">요즘 뜨는 태그들</div>
+                        <div class="hashtag-box">
+                            <div class="hashtag">#가을산</div>
+                            <div class="hashtag">#억새맛집</div>
+                            <div class="hashtag">#블랙야크 100대명산</div>
+                            <div class="hashtag">#충청도산</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        
+            <div class="slider"></div>
+                <div class="app">
+                    <div class="cardList">
+                        <button class="cardList__btn btn btn--left">
+                            <div class="icon">
+                                <svg>
+                                    <use xlink:href="#arrow-left"></use>
+                                </svg>
+                            </div>
+                        </button>
+
+                        <div class="cards__wrapper">
+                            <div class="card current--card">
+                                <div class="card__image">
+                                    <img src="{% static 'landing/assets/mainpage_photo3.jpg' %}" class="banner-image" >
+                                </div>
+                            </div>
+
+                            <div class="card next--card">
+                                <div class="card__image">
+                                    <img src="{% static 'landing/assets/mainpage_photo1.jpg' %}" class="banner-image" >
+                                </div>
+                            </div>
+
+                            <div class="card previous--card">
+                                <div class="card__image">
+                                    <img src="{% static 'landing/assets/mainpage_photo2.jpg' %}" class="banner-image" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="cardList__btn btn btn--right">
+                            <div class="icon">
+                                <svg>
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- <div class="infoList">
+                        <div class="info__wrapper">
+                            <div class="info current--info">
+                                <h1 class="text name">Highlands</h1>
+                                <h4 class="text location">Scotland</h4>
+                                <p class="text description">The mountains are calling</p>
+                            </div>
+
+                            <div class="info next--info">
+                                <h1 class="text name">Machu Pichu</h1>
+                                <h4 class="text location">Peru</h4>
+                                <p class="text description">Adventure is never far away</p>
+                            </div>
+
+                            <div class="info previous--info">
+                                <h1 class="text name">Chamonix</h1>
+                                <h4 class="text location">France</h4>
+                                <p class="text description">Let your dreams come true</p>
+                            </div>
+                        </div>
+                    </div> -->
 
 
+                    <div class="app__bg">
+                        <div class="app__bg__image current--image">
+                        </div>
+                        <div class="app__bg__image next--image">
+                        </div>
+                        <div class="app__bg__image previous--image">
+                        </div>
+                    </div>
+                </div>
+           
+                    <!-- <div class="loading__wrapper">
+                        <div class="loader--text">Loading...</div>
+                        <div class="loader">
+                            <span></span>
+                        </div>
+                    </div> -->
+
+
+                <svg class="icons" style="display: none;">
+                    <symbol id="arrow-left" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+                        <polyline points='328 112 184 256 328 400'
+                                    style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+                    </symbol>
+                    <symbol id="arrow-right" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+                        <polyline points='184 112 328 256 184 400'
+                                    style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+                    </symbol>
+                </svg>
+             </div>
     </main>
-
-    
-    <div class="slideshow-container">
-        <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <div class="banner-image-container">
-                <img src="{% static 'landing/assets/mainpage_photo3.jpg' %}" class="banner-image" >
-            </div>
-            <div class="text">Caption Text</div>
-        </div>
-        <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <!-- <div class="banner-image-container"> -->
-                <img src="{% static 'landing/assets/mainpage_photo1.jpg' %}" class="banner-image" >
-            <!-- </div> -->
-            <div class="text">Caption Two</div>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <!-- <div class="banner-image-container"> -->
-                <img src="{% static 'landing/assets/mainpage_photo2.jpg' %}" class="banner-image" >
-            <!-- <div> -->
-            <div class="text">Caption Three</div>
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <br>
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
 
     <script src="{% static 'landing/js/scripts.js' %}"></script>
 </body>

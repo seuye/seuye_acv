@@ -3,7 +3,10 @@ var map1_x=36.666805;
 var map1_y=127.9784147;
 var map2_x=36.666805;
 var map2_y=127.9784147;
-
+var lnglat_toil=[]
+var lnglat_path_1=[]
+var lnglat_path_2=[]
+var markerList = [];
 
 
 
@@ -19,9 +22,12 @@ var HOME_PATH = window.HOME_PATH || '.';
 //         return false;
 //     }
 // }
+
+///detail/700007
+
 window.onload = function call_db_name() {
     // if (doubleSubmitCheck_db()) return;
-    fetch('/detail/api-call/?query='.concat(488605302))
+    fetch('/detail/gpx-code/?query='.concat(700006))
         .then((response) => response.json())
         .then((results) => dbPack = results)
         .then((dbPack) => {
@@ -29,43 +35,109 @@ window.onload = function call_db_name() {
             //doubleSubmitFlag = false
             console.log(dbPack) //
         })
-}
-
+    }
 
 function mapping(input){
-    map1_x=input.base_result[0].lat
-    map1_y=input.base_result[0].lng
-    map2_x=input.base_result[0].lat
-    map2_y=input.base_result[0].lng
+    if (dbPack.hasOwnProperty("toil")==true){
+        lnglat_toil=[]
+        for (i of dbPack.toil){
+            console.log(i)
+            lnglat_toil.push(new naver.maps.LatLng(i.lat,i.lng))
+            }
+        } else {} 
+
+
+
+    lnglat_path_1=[];
+    for (i of dbPack.details.base[0][0].geometry){
+        lnglat_path_1.push(new naver.maps.LatLng(i[1],i[0]))
+        }
+  
+    console.log("호출성공")
+
+
+    map1_x=input.lat
+    map1_y=input.lng
+    map2_x=input.lat
+    map2_y=input.lng
     var target_mountain_1 = new naver.maps.LatLng(map1_x,map1_y );
     var target_mountain_2 = new naver.maps.LatLng(map2_x, map2_y);
     var target_m1 = new naver.maps.LatLng(map1_x, map1_y);
     var target_m2 = new naver.maps.LatLng(map2_x, map2_y);
 
 
-        var map = new naver.maps.Map('short-map_img_1', {
+        var map_1 = new naver.maps.Map('short-map_img_1', {
             center: target_mountain_1,
-            mapTypeId: naver.maps.MapTypeId.HYBRID,
             zoom: 14,
-            minZoom: 14,
-            maxZoom: 12,
+            minZoom: 2,
+            maxZoom: 15,
         }),
-        marker_2 = new naver.maps.Marker({
-            map: map,
+            marker_1 = new naver.maps.Marker({
+            map: map_1,
             position: target_m1,
-        });
+        }), polyline = new naver.maps.Polyline({
+        
+            path:lnglat_path_1,
+            strokeColor:'#FF0000',
+            strokeOpacity: 1,
+            stokeWeight: 7,
+            map:map_1
+            })
+        
+
+        var map_mini = new naver.maps.Map('mini-map_img_1', {
+            center: new naver.maps.LatLng(36.5786308, 127.989401),
+            zoom: 6,
+            minZoom: 6,
+            maxZoom: 6,
+            draggable: false,
+        }),
+            marker_1 = new naver.maps.Marker({
+            map: map_mini,
+            position: target_m1,
+        })
+
+        
 
 
+        for (var i=0, ii=lnglat_toil.length; i<ii; i++) {
+                marker_toil = new naver.maps.Marker({
+                map: map_1,
+                draggable: false,
+                // icon: {
+                //     url: 'https://storage.googleapis.com/cloud_moa/korea/blackyk.png',
+                //     size: new naver.maps.Size(100, 100),
+                //     origin: new naver.maps.Point(0, 0),
+                //     anchor: new naver.maps.Point(11, 35)
+                // },
+                position:lnglat[i],
+                
+                });
+            marker_toil.set('seq', i);
 
-        var map = new naver.maps.Map('short-map_img_2', {
+            markerList.push(marker_toil);
+
+            icon = null;
+            marker = null;
+        
+            };
+
+
+        var map_2 = new naver.maps.Map('short-map_img_2', {
                 center: target_mountain_2,
                 zoom: 10,
                 minZoom: 3,
                 maxZoom: 12,
             }),
-            marker_default = new naver.maps.Marker({
-                map: map_center,
+            marker_toil = new naver.maps.Marker({
+                map: map_2,
                 draggable: false,
+                icon: {
+                    url: 'https://storage.googleapis.com/cloud_moa/korea/blackyk.png',
+                    size: new naver.maps.Size(100, 100),
+                    origin: new naver.maps.Point(0, 0),
+                    anchor: new naver.maps.Point(11, 35)
+                },
                 position: target_m2,
             });
 
@@ -114,17 +186,5 @@ var map_png = new kakao.maps.Map(node, {
 });
 marker_png.setMap(map_png);
 ////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
 
 
