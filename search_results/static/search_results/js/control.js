@@ -9,8 +9,6 @@ window.onload = function init() {
     search_string=decodeURIComponent(search_string)
     searcher_1.innerHTML=search_string
     searcher.innerHTML=search_string
-
-
     }
 
 

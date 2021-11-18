@@ -22,81 +22,73 @@
     <title>Search rusults</title>
 </head>
 <body>
- 
-    <div class="main-container">
-        <div class="temp-box_left">
+    <main>
+      <div class="main-container">
+        <div class="row1">
+          <div class="temp-box_left">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="search-category" data-bs-toggle="dropdown" aria-expanded="false">등산코스&nbsp;&nbsp;</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <div class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">트레킹 코스</div>
-                <!-- <div class="modal" id="exampleModal" tabindex="-1">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Modal title</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <p>Modal body text goes here.</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                </div> -->
-                <a class="dropdown-item" >도보여행(올레길)</a>
-                <a class="dropdown-item" >달리기 코스</a>
+              <div class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">트레킹 코스</div>
+              <a class="dropdown-item" >도보여행(올레길)</a>
+              <a class="dropdown-item" >달리기 코스</a>
             </div>
-        </div>
-        <div class="temp-box_right">
-            <div class="search-box">
-                <i class="fa fa-search" aria-hidden="true"></i>
-                <div class="search-ex">가을명산</div>
+          </div>
+          
+          <div class="temp-box_right">
+            <div class="d-flex">
+              <form action="/search_results/" method="get">
+                <input id="search-box"class="form-control rounded-pill"  name="query" type="search" placeholder="지리산, 단풍명소, 일출산행" aria-label="Search" >
+                <button class="search-btn"  type="submit">
+                  <img class="search-btn-img" src="{% static 'landing/assets/search-arrow.jpg' %}" >
+                </button>
+              </form>
             </div>
-
+            
+            
             <div class="recent-box">
-                <div class="recent-text">요즘 뜨는 태그들</div>
-                <div class="hashtag-box">
-                    <div class="hashtag">#가을산</div>
-                    <div class="hashtag">#억새맛집</div>
-                    <div class="hashtag">#블랙야크 100대명산</div>
-                    <div class="hashtag">#충청도산</div>
-                </div>
+              <div class="recent-text">요즘 뜨는 태그들</div>
+              <div class="hashtag-box">
+                <div class="hashtag">#가을산</div>
+                <div class="hashtag">#억새맛집</div>
+                <div class="hashtag">#블랙야크 100대명산</div>
+                <div class="hashtag">#충청도산</div>
+              </div>
             </div>
-
-        </div>
-    </div>
-    <div class="search_result">
-        <div class="result_top">
-          <div class="result_text">
-            <div class="search_value">충청도산</div>
-            에 대한 검색결과 19건
-          </div>
-          <div class="result_sort">
-            <div class="sort_like">· 인기순</div>
-            <div class="sort_views">· 조회순</div>
-            <div class="sort_comment">· 댓글순</div>
-            <div class="sort_alpha">· 가나다순</div>
           </div>
         </div>
-        <div class="result_content">
-          <div class="content_img">
-            <img src=https://via.placeholder.com/300 alt="임시이미지"
-            class="mnt_img"/>
+        <div class="search_result">
+          <div class="result_top">
+            <div class="result_text">
+              <div class="search_value"></div>
+              에 대한 검색결과 19건
+            </div>
+            <div class="result_sort">
+              <div class="sort_like">· 인기순</div>
+              <div class="sort_views">· 조회순</div>
+              <div class="sort_comment">· 댓글순</div>
+              <div class="sort_alpha">· 가나다순</div>
+            </div>
           </div>
-          <div class="content_info">
-            <div class="mnt_name">월악산</div>
-            <div class="mnt_location">충북 충주시 제천시 · 제천시 · 단양군</div>
-            <div class="mnt_height">1,094m</div>
-            <div class="mnt_tags">태그</div>
+          <div class="result_content">
+            <div class="content_img">
+              <img src=https://via.placeholder.com/300 alt="임시이미지"
+              class="mnt_img"/>
+            </div>
+            <div class="content_info">
+              <div class="mnt_name">월악산</div>
+              <div class="mnt_location">충북 충주시 제천시 · 제천시 · 단양군</div>
+              <div class="mnt_height">1,094m</div>
+              <div class="mnt_tags">태그</div>
+            </div>
+            <div id="map_png" style="width:200px;height: 200px;" class="content_map">지도</div>
           </div>
-          <div id="map_png" style="width:200px;height:400px" class="content_map">지도</div>
         </div>
       </div>
-      <script src="{% static 'search_results/js/control.js' %}"></script>
-      <script src="{% static 'search_results/js/maps.js' %}"></script>
-      
+    </main>
+
+  <script src="{% static 'search_results/js/control.js' %}"></script>
+  <script src="{% static 'search_results/js/maps.js' %}"></script>
+
 </body>
 {% endblock %}
 
