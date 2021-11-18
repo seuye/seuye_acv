@@ -3,7 +3,9 @@ var map1_x=36.666805;
 var map1_y=127.9784147;
 var map2_x=36.666805;
 var map2_y=127.9784147;
-var lnglat=[]
+var lnglat_toil=[]
+var lnglat_path_1=[]
+var lnglat_path_2=[]
 var markerList = [];
 
 
@@ -20,9 +22,12 @@ var HOME_PATH = window.HOME_PATH || '.';
 //         return false;
 //     }
 // }
+
+///detail/700007
+
 window.onload = function call_db_name() {
     // if (doubleSubmitCheck_db()) return;
-    fetch('/detail/gpx-code/?query='.concat(700007))
+    fetch('/detail/gpx-code/?query='.concat(700006))
         .then((response) => response.json())
         .then((results) => dbPack = results)
         .then((dbPack) => {
@@ -30,15 +35,27 @@ window.onload = function call_db_name() {
             //doubleSubmitFlag = false
             console.log(dbPack) //
         })
-}
-
+    }
 
 function mapping(input){
-    for (i of dbPack.toil){
-        console.log(i)
-        lnglat.push(new naver.maps.LatLng(i.lat,i.lng))
-    }
-    console.log(lnglat)
+    if (dbPack.hasOwnProperty("toil")==true){
+        lnglat_toil=[]
+        for (i of dbPack.toil){
+            console.log(i)
+            lnglat_toil.push(new naver.maps.LatLng(i.lat,i.lng))
+            }
+        } else {} 
+
+
+
+    lnglat_path_1=[];
+    for (i of dbPack.details.base[0][0].geometry){
+        lnglat_path_1.push(new naver.maps.LatLng(i[1],i[0]))
+        }
+  
+    console.log("호출성공")
+
+
     map1_x=input.lat
     map1_y=input.lng
     map2_x=input.lat
@@ -51,17 +68,39 @@ function mapping(input){
 
         var map_1 = new naver.maps.Map('short-map_img_1', {
             center: target_mountain_1,
-            mapTypeId: naver.maps.MapTypeId.HYBRID,
             zoom: 14,
-            minZoom: 9,
-            maxZoom: 12,
+            minZoom: 2,
+            maxZoom: 15,
         }),
-        marker_1 = new naver.maps.Marker({
+            marker_1 = new naver.maps.Marker({
             map: map_1,
             position: target_m1,
-        });
+        }), polyline = new naver.maps.Polyline({
+        
+            path:lnglat_path_1,
+            strokeColor:'#FF0000',
+            strokeOpacity: 1,
+            stokeWeight: 7,
+            map:map_1
+            })
+        
 
-        for (var i=0, ii=lnglat.length; i<ii; i++) {
+        var map_mini = new naver.maps.Map('mini-map_img_1', {
+            center: new naver.maps.LatLng(36.5786308, 127.989401),
+            zoom: 6,
+            minZoom: 6,
+            maxZoom: 6,
+            draggable: false,
+        }),
+            marker_1 = new naver.maps.Marker({
+            map: map_mini,
+            position: target_m1,
+        })
+
+        
+
+
+        for (var i=0, ii=lnglat_toil.length; i<ii; i++) {
                 marker_toil = new naver.maps.Marker({
                 map: map_1,
                 draggable: false,
@@ -147,17 +186,5 @@ var map_png = new kakao.maps.Map(node, {
 });
 marker_png.setMap(map_png);
 ////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
 
 

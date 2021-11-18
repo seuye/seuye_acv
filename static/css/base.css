@@ -1,180 +1,180 @@
 
 body{
     margin: 0;
-    }
+}
 
 .checkbtn{
     font-size:2rem;
     cursor:pointer;
     display: none;
 }
-    nav{
-        /* border: 1px solid black; */
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        font-weight: lighter;
-        height: 6.4rem;
-        background-color:rgb(255, 255, 255);
-        position: sticky;
-        top: 0;
-        border-bottom: 1px solid rgb(232, 232, 232);
+nav{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: lighter;
+    height: 6.4rem;
+    background-color:rgb(255, 255, 255);
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid rgb(232, 232, 232);
+    z-index: 500;
+}
 
-    } 
 
-  
-    nav a{
-      text-decoration: none;
-    }
-  
-    .left{
-        display:flex;
-        float:left;
-        margin-left: 10rem;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        /* border: 1px solid black; */
+nav a{
+    text-decoration: none;
+}
 
-        }
-  
-    .middle{
-        /* border: 1px solid black; */
-        color: #FF760C;
-        /* display: flex; */
-        /* float: left; */
-        font-size: 3rem;
-        font-weight: 700;
-        letter-spacing: -0.1rem;
-        font-family: 'Poppins', sans-serif;
-        line-height: 6.4rem;
-    }
-  
-    .lefttext{
-        /* border: 1px solid black; */
-        font-size: 1.25rem;
-        font-weight: bolder;
-        margin: 1rem;
-        color:rgb(70,69,69);
-        /* border-radius: 14px; */
-        }
+.left{
+    display:flex;
+    float:left;
+    margin-left: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    /* border: 1px solid black; */
     
-    .right{
-        /* border: 1px solid black; */
-        display:flex;
-        /* float: right; */
-        margin-right: 10rem;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
-      
-  
-    .right_text{
-        /* border: 1px solid black; */
-        color:rgba(255, 118, 12, 1);
-        font-size: 1rem;
-        margin: 1.4rem 1.25rem 1.25rem 1.25rem;
-        font-weight: bolder;
-    }
-  
-    .right_button{
-        display: flex;
-        margin-top: 0.8rem;
-        margin-bottom: 0.8rem;
-        font-weight: bold;
-        /* margin: 15px; */
-    }
-  
-    #button_sign-in{
-        /* border: 1px solid rgba(66, 70, 66, 0.78); */
-        border-radius: 14px;
-        margin-right: 0.5rem;
-        font-size: 1rem;
-        padding-right: 0.9rem;
-        padding-top: 0.6rem;
-        padding-bottom: 2rem;
-        padding-left: 0.9rem;
-        color: white;
-        background: #5a5b5a61;
+}
 
- 
-    }
-    nav a:hover{
-        color: initial;
-    }
+.middle{
+    /* border: 1px solid black; */
+    color: rgb(255, 111, 0);
+    /* display: flex; */
+    /* float: left; */
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.1rem;
+    font-family: 'Poppins', sans-serif;
+    line-height: 6.4rem;
+}
 
-    .middle:hover{
-        color:rgba(255, 118, 12, 1);
-    }
+.lefttext{
+    /* border: 1px solid black; */
+    font-size: 1.25rem;
+    font-weight: bolder;
+    margin: 1rem;
+    color:rgb(70,69,69);
+    /* border-radius: 14px; */
+}
 
-    #button_log-in:hover {
+.right{
+    /* border: 1px solid black; */
+    display:flex;
+    /* float: right; */
+    margin-right: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.right_text{
+    /* border: 1px solid black; */
+    color:rgba(255, 116, 10, 1);
+    font-size: 1rem;
+    margin: 1.4rem 1.25rem 1.25rem 1.25rem;
+    font-weight: bolder;
+}
+
+.right_button{
+    display: flex;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+    /* margin: 15px; */
+}
+
+#button_sign-in{
+    /* border: 1px solid rgba(66, 70, 66, 0.78); */
+    border-radius: 14px;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    padding-right: 0.9rem;
+    padding-top: 0.6rem;
+    padding-bottom: 2rem;
+    padding-left: 0.9rem;
+    color: white;
+    background: #5a5b5a61;
+    
+    
+}
+nav a:hover{
+    color: initial;
+}
+
+.middle:hover{
+    color:rgba(255, 116, 10, 1);
+}
+
+#button_log-in:hover {
     background: #5a5b5a61;
     transition:.2s;
     /* border: 1px solid black; */
     color: white;
     border: 1px solid #bfbfbf51;
-  }
+}
+
+
+#button_log-in{
+    border: 0.5px solid #5a5b5a61;
+    font-size: 1rem;
+    border-radius: 14px;
+    padding-right: 1.2rem;
+    padding-top: 0.6rem;
+    padding-bottom: 2rem;
+    padding-left: 1.2rem;
+    color: rgba(66, 70, 66, 0.78);
+}
+
+@media (max-width: 1250px){
     
-  
-    #button_log-in{
-        border: 0.5px solid #5a5b5a61;
-        font-size: 1rem;
-        border-radius: 14px;
-        padding-right: 1.2rem;
-        padding-top: 0.6rem;
-        padding-bottom: 2rem;
-        padding-left: 1.2rem;
-        color: rgba(66, 70, 66, 0.78);
+    html{
+        font-size: 14px;
     }
-
-    @media (max-width: 1250px){
-
-        html{
-            font-size: 14px;
-        }
-
-        .middle{
-            font-size:2.3rem;
-            margin-left: 1.4rem;
-            margin-right: 1.4rem;
-
-        }
-        .lefttext{
-            font-size:1rem;
-            margin-right:0.3rem;
-        }
-        .left{
-            margin-left:2em;
-        }
-        .right{
-            margin-right: 2rem;
-            font-size: 0.6rem;
-        }
-        .right_text{
-             margin: 1.4rem 0.8rem 0.8rem 0.8rem;
-        }
-    }
-
-    @media (max-width: 800px){     
-        nav a{
-            display: none;
-        }
-
     
-        .middle{
-            display: block;
-            font-size:2.3rem;
-            margin-left: 2rem;
-        }
-
-        nav{
-            margin:0;
-            justify-content: space-between;
-            display: flex;
-        }
-
-        .checkbtn{
-            display: block;
-            float: right;
-        }
-
+    .middle{
+        font-size:2.3rem;
+        margin-left: 1.4rem;
+        margin-right: 1.4rem;
+        
     }
+    .lefttext{
+        font-size:1rem;
+        margin-right:0.3rem;
+    }
+    .left{
+        margin-left:2em;
+    }
+    .right{
+        margin-right: 2rem;
+        font-size: 0.6rem;
+    }
+    .right_text{
+        margin: 1.4rem 0.8rem 0.8rem 0.8rem;
+    }
+}
+
+@media (max-width: 800px){     
+    nav a{
+        display: none;
+    }
+    
+    
+    .middle{
+        display: block;
+        font-size:2.3rem;
+        margin-left: 2rem;
+    }
+    
+    nav{
+        margin:0;
+        justify-content: space-between;
+        display: flex;
+    }
+    
+    .checkbtn{
+        display: block;
+        float: right;
+    }
+    
+}

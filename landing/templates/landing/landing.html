@@ -34,10 +34,11 @@
 
                 <div class="temp-box_right">
                     <div class="d-flex">
-                        <form action="" method="get">
-                            {% csrf_token %}
-                            <input id="search-box" class="form-control rounded-pill"  name="query" type="search" placeholder="지리산, 단풍명소, 일출산행" aria-label="Search">
-                            <button id="search-btn" class="btn btn-outline-success" type="submit">Search</button>
+                        <form action="/search_results/" method="get">
+                            <input id="search-box"class="form-control rounded-pill"  name="query" type="search" placeholder="지리산, 단풍명소, 일출산행" aria-label="Search" >
+                            <button class="search-btn"  type="submit">
+                                <img class="search-btn-img" src="{% static 'landing/assets/search-arrow.jpg' %}" >
+                            </button>
                         </form>
                     </div>
                         <!-- <i class="fa fa-search fa-2x"  aria-hidden="true" onclick="location.href='/search_results/'" ></i> -->
@@ -55,42 +56,99 @@
                     </div>
                 </div>
             </div>
-    
+        
+            <div class="slider"></div>
+                <div class="app">
+                    <div class="cardList">
+                        <button class="cardList__btn btn btn--left">
+                            <div class="icon">
+                                <svg>
+                                    <use xlink:href="#arrow-left"></use>
+                                </svg>
+                            </div>
+                        </button>
 
-            <div class="slideshow-container">
-                <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
-                    <div class="banner-image-container">
-                        <img src="{% static 'landing/assets/mainpage_photo3.jpg' %}" class="banner-image" >
+                        <div class="cards__wrapper">
+                            <div class="card current--card">
+                                <div class="card__image">
+                                    <img src="{% static 'landing/assets/mainpage_photo3.jpg' %}" class="banner-image" >
+                                </div>
+                            </div>
+
+                            <div class="card next--card">
+                                <div class="card__image">
+                                    <img src="{% static 'landing/assets/mainpage_photo1.jpg' %}" class="banner-image" >
+                                </div>
+                            </div>
+
+                            <div class="card previous--card">
+                                <div class="card__image">
+                                    <img src="{% static 'landing/assets/mainpage_photo2.jpg' %}" class="banner-image" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="cardList__btn btn btn--right">
+                            <div class="icon">
+                                <svg>
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg>
+                            </div>
+                        </button>
                     </div>
-                    <div class="text">Caption Text</div>
-                </div>
-                <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
-                    <!-- <div class="banner-image-container"> -->
-                        <img src="{% static 'landing/assets/mainpage_photo1.jpg' %}" class="banner-image" >
-                    <!-- </div> -->
-                    <div class="text">Caption Two</div>
-                </div>
 
-                <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
-                    <!-- <div class="banner-image-container"> -->
-                        <img src="{% static 'landing/assets/mainpage_photo2.jpg' %}" class="banner-image" >
-                    <!-- <div> -->
-                    <div class="text">Caption Three</div>
+                    <!-- <div class="infoList">
+                        <div class="info__wrapper">
+                            <div class="info current--info">
+                                <h1 class="text name">Highlands</h1>
+                                <h4 class="text location">Scotland</h4>
+                                <p class="text description">The mountains are calling</p>
+                            </div>
+
+                            <div class="info next--info">
+                                <h1 class="text name">Machu Pichu</h1>
+                                <h4 class="text location">Peru</h4>
+                                <p class="text description">Adventure is never far away</p>
+                            </div>
+
+                            <div class="info previous--info">
+                                <h1 class="text name">Chamonix</h1>
+                                <h4 class="text location">France</h4>
+                                <p class="text description">Let your dreams come true</p>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                    <div class="app__bg">
+                        <div class="app__bg__image current--image">
+                        </div>
+                        <div class="app__bg__image next--image">
+                        </div>
+                        <div class="app__bg__image previous--image">
+                        </div>
+                    </div>
                 </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                </div>
-                <br>
-                <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                </div>
-            </div>
-        </div>
+           
+                    <!-- <div class="loading__wrapper">
+                        <div class="loader--text">Loading...</div>
+                        <div class="loader">
+                            <span></span>
+                        </div>
+                    </div> -->
+
+
+                <svg class="icons" style="display: none;">
+                    <symbol id="arrow-left" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+                        <polyline points='328 112 184 256 328 400'
+                                    style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+                    </symbol>
+                    <symbol id="arrow-right" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+                        <polyline points='184 112 328 256 184 400'
+                                    style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px' />
+                    </symbol>
+                </svg>
+             </div>
     </main>
 
     <script src="{% static 'landing/js/scripts.js' %}"></script>

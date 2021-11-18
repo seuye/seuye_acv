@@ -5,10 +5,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Landing{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800;900&display=swap" rel="stylesheet">
+    {% block head %}
+    {% endblock %}
 </head>
 <body>
     <nav>
@@ -29,7 +32,6 @@
             </div>
         </div>
     </nav>
-    <!-- <hr> -->
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 {% block content %}
 {% endblock %}
