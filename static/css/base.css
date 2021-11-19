@@ -94,7 +94,7 @@ nav a{
     padding-bottom: 2rem;
     padding-left: 0.9rem;
     color: white;
-    background: #5a5b5a61;
+    background: #5a5b5a83;
     
     
 }
@@ -107,7 +107,7 @@ nav a:hover{
 }
 
 #button_log-in:hover {
-    background: #5a5b5a61;
+    background: #5a5b5a83;
     transition:.2s;
     /* border: 1px solid black; */
     color: white;

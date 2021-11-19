@@ -110,7 +110,7 @@ var map_png_check = new kakao.maps.Map(
 var center = map.getCenter();
 var png_overlay = new kakao.maps.Tileset({
     width: 256,
-    height: 256,
+    height: 280,
     getTile: function(x, y, z) {
         var div = document.createElement('div');
         div.innerHTML = x + ', ' + y + ', ' + z;
