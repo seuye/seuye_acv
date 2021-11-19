@@ -12,4 +12,15 @@ window.onload = function init() {
     }
 
 
+
+function movePage(){
+    var mnt_code = document.getElementById( 'mnt_card' ).getAttribute( 'code' );
+    console.log(mnt_code);
+    window.location.href='http://127.0.0.1:8000/detail/mnt_detail/'+mnt_code;
+    // window.location.href='http://127.0.0.1:8000/detail/mnt_detail/';
+}
+
+
+
+
     

@@ -25,6 +25,6 @@ def search_results(request):
     json_dict = json.loads(json_rq)
     print(json_dict)
     context = {
-        "contents": json_dict, 
+        "contents": json_dict,
     }
     return render(request, "search_results/search_results.html", context)

@@ -14,9 +14,10 @@
    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=583339486fc3a9b874ce7501159c3d8d"></script>
-   <script> var map_info_lat="{{contents.main.0.lat}}"
-            var map_info_lng="{{contents.main.0.lng}}"
-   
+   <script> 
+  //  var map_info_lat="{{contents.main.0.lat}}"
+  //  var map_info_lng="{{contents.main.0.lng}}" 
+    var count = "{{contents.meta.count}}"
    </script> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search rusults</title>
@@ -37,7 +38,8 @@
           <div class="temp-box_right">
             <div class="d-flex">
               <form action="/search_results/" method="get">
-                <input id="search-box"class="form-control rounded-pill"  name="query" type="search" placeholder="지리산, 단풍명소, 일출산행" aria-label="Search" >
+                <img class="search-icon" src="{% static 'search_results/assets/search-icon.jpg' %}" >
+                <input id="search-box"class="form-control rounded-pill"  name="query" type="text" placeholder="지리산, 단풍명소, 일출산행" aria-label="Search" >
                 <button class="search-btn"  type="submit">
                   <img class="search-btn-img" src="{% static 'landing/assets/search-arrow.jpg' %}" >
                 </button>
@@ -48,10 +50,10 @@
             <div class="recent-box">
               <div class="recent-text">요즘 뜨는 태그들</div>
               <div class="hashtag-box">
-                <div class="hashtag">#가을산</div>
-                <div class="hashtag">#억새맛집</div>
-                <div class="hashtag">#블랙야크 100대명산</div>
-                <div class="hashtag">#충청도산</div>
+                <a class="hashtag" href="#" >#가을산</a>
+                <a class="hashtag" href="#">#억새맛집</a>
+                <a class="hashtag" href="#">#블랙야크 100대명산</a>
+                <a class="hashtag" href="#">#충청도산</a>
               </div>
             </div>
           </div>
@@ -60,28 +62,40 @@
           <div class="result_top">
             <div class="result_text">
               <div class="search_value"></div>
-              에 대한 검색결과 19건
+              에 대한 검색결과 {{contents.meta.count}}건
             </div>
             <div class="result_sort">
-              <div class="sort_like">· 인기순</div>
-              <div class="sort_views">· 조회순</div>
-              <div class="sort_comment">· 댓글순</div>
-              <div class="sort_alpha">· 가나다순</div>
+              <a id ="sort" class="sort_alpha" href="#">· 가나다순</a>
+              <a id ="sort" class="sort_like" href="#">· 인기순</a>
+              <a id ="sort" class="sort_views" href="#">· 조회순</a>
+              <a id ="sort" class="sort_comment" href="#">· 댓글순</a>
             </div>
           </div>
-          <div class="result_content">
+
+          <!-- 반복문 써야할 부분 -->
+          {% for data in contents.main %}
+          <div class="result_content" type="button" id="mnt_card" onclick="movePage()" code="{{data.major_mnt_code}}">
             <div class="content_img">
-              <img src=https://via.placeholder.com/300 alt="임시이미지"
+              <img src="{% static 'search_results/assets/photo1.jpg' %}" alt="임시이미지"
               class="mnt_img"/>
             </div>
             <div class="content_info">
-              <div class="mnt_name">월악산</div>
-              <div class="mnt_location">충북 충주시 제천시 · 제천시 · 단양군</div>
-              <div class="mnt_height">1,094m</div>
-              <div class="mnt_tags">태그</div>
+              <div class="mnt_name">{{data.name}}</div>
+              <div class="mnt_location">{{data.info}}</div>
+              <div class="mnt_height">
+                <img src="{% static 'mnt_detail/assets/atit_icon.png' %}" class="atiticon">
+                <div class="mnt_height_txt">{{data.high}}m</div>
+              </div>
+              <div class="mnt_tags">
+                <div class="tag">블랙야크 100대명산</div>
+                <div class="tag">단풍명소</div>
+                <div class="tag">겨울산</div>
+              </div>
             </div>
-            <div id="map_png" style="width:200px;height: 200px;" class="content_map">지도</div>
+            <div id="map_png_{{ forloop.counter0 }}" style="width:200px;height: 200px;" class="content_map" lat="{{ data.lat }}" lng="{{ data.lng }}"> </div>
           </div>
+          <!-- <script>{{data.lat}}</script> -->
+          {% endfor %}
         </div>
       </div>
     </main>

@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>free_board_write</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 </head>
 <body>
-    
- <form action="/free_board/write/" id="free_write" method="post">
+    <div class="slick-top"> 
+        <div><img src="./images/slide1.png" alt="슬라이드이미지"></div> 
+        <div><img src="./images/slide2.png" alt="슬라이드이미지"></div> 
+        <div><img src="./images/slide3.png" alt="슬라이드이미지"></div> 
+    </div> 
+
+ <!-- <form action="/free_board/write/" id="free_write" method="post">
     {% csrf_token %}
     제목 : <input type="text" name='title'>
     <input type='submit' 입력>
 </form>
 
-<textarea name="content" form="free_write"> 내용 </textarea>
-    
+<textarea name="content" form="free_write"> 내용 </textarea> -->
+
+<script>
+$(function () { 
+    $('.slick-top').slick(); });
+</script>
+
+
 </body>
 </html>
