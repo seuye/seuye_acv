@@ -51,7 +51,7 @@ for (var i=0; i<10; i++){
         mapTypeId: kakao.maps.MapTypeId.PLAN,
         $scale: false,
         draggable: false, //wgs84 -> google / naver ? -> daum ? gpd ## 
-        center: new kakao.maps.LatLng(35.766805, 127.6784147),
+        center: new kakao.maps.LatLng(36.466805, 127.6784147),
         level: 14,
     });
 
