@@ -5,37 +5,41 @@
     font-style: normal;
 }
 
-nav{
+nav {
     z-index: 4;
 }
+
+
 /* 이하 상세페이지 css */
+
+
 /* main{
     background-color: #F0F0F0;
     height: max-content;
     border: 0.1px solid rgba(245, 245, 245, 0);
 } */
 
-.body{
+.body {
     background-color: rgb(247, 247, 250);
     /* background-color: #F0F0F0; */
-    margin:auto;
+    margin: auto;
     margin-top: 1.2rem;
     border-radius: 1.5rem;
     height: max-content;
     width: 67rem;
 }
 
-.mainimage-box{
-    display:flex;
+.mainimage-box {
+    display: flex;
     /* border:0.1rem solid black; */
     width: fit-content;
     margin: auto;
     padding-top: 1.5rem;
     position: relative;
-    box-sizing: border-box;    
+    box-sizing: border-box;
 }
 
-.mainimage1{
+.mainimage1 {
     /* border: 0.1rem solid red; */
     border-radius: 1.5rem;
     margin-right: 1rem;
@@ -45,20 +49,19 @@ nav{
     z-index: 1;
 }
 
-.mainimage2{
+.mainimage2 {
     /* border: 0.1rem solid blue; */
     border-radius: 1.5rem;
     width: 21rem;
     height: 22rem;
     box-sizing: border-box;
     z-index: 3;
-    
 }
 
-.content-box{
+.content-box {
     background-color: white;
-    width:58.5rem;
-    height:fit-content;
+    width: 58.5rem;
+    height: fit-content;
     margin: auto;
     /* border: 0.1rem solid orange; */
     border-radius: 2rem;
@@ -66,10 +69,9 @@ nav{
     position: relative;
     z-index: 2;
     font-family: 'EliceDigitalBaeum_Regular';
-
 }
 
-.mnt_name{
+.mnt_name {
     /* border:0.1rem solid black; */
     font-size: 3rem;
     font-weight: bold;
@@ -77,7 +79,7 @@ nav{
     padding-top: 2rem;
 }
 
-.atit{
+.atit {
     display: flex;
     /* border:0.1rem solid black; */
     margin: 0.8rem 2rem 0 2rem;
@@ -86,41 +88,41 @@ nav{
     height: 3rem;
 }
 
-.atiticon{
+.atiticon {
     /* border:0.1rem solid black; */
-    width:2rem;
-    height:2rem;
+    width: 2rem;
+    height: 2rem;
     /* float:left; */
     margin-right: 0.5rem;
     margin-top: 0.2rem;
 }
 
-.mnt_atit{
+.mnt_atit {
     /* border:0.1rem solid black; */
     /* padding-top: 0.3rem; */
     height: 2rem;
 }
 
-.tag-box{
+.tag-box {
     /* border:1px solid black; */
     display: flex;
-    margin:2.2rem 2rem 1.5rem 2rem;
-    width: fit-content;    
+    margin: 2.2rem 2rem 1.5rem 2rem;
+    width: fit-content;
 }
 
-.tag{
+.tag {
     /* border:1px solid black; */
     background-color: rgb(242, 245, 248);
     margin-right: 1rem;
-    padding:0.4rem 0.7rem 0.4rem 0.7rem;
+    padding: 0.4rem 0.7rem 0.4rem 0.7rem;
     font-size: 0.9rem;
     font-weight: bold;
     border-radius: 0.5rem;
     color: rgb(67, 77, 85);
 }
 
-.info_long{
-    margin:0 2rem 2rem 2rem;
+.info_long {
+    margin: 0 2rem 2rem 2rem;
     /* border:1px solid black; */
     border-radius: 2rem;
     padding: 1.8rem 2rem;
@@ -129,16 +131,16 @@ nav{
     line-height: 2rem;
 }
 
-.crs-box{
+.crs-box {
     /* border:1px solid black; */
     display: flex;
     border-radius: 1rem 1rem 0rem 0rem;
-    background-color: rgb(255, 118, 12) ;
+    background-color: rgb(255, 118, 12);
 }
 
-.crs{
+.crs {
     /* border:1px solid rgb(255, 118, 12); */
-    padding:1rem;
+    padding: 1rem;
     font-size: 1.1rem;
     margin-top: 0.2rem;
     margin-left: 0.2rem;
@@ -147,151 +149,153 @@ nav{
     font-weight: bold;
 }
 
-#selected{
+#selected {
     background-color: white;
     color: black;
 }
 
-.contentbox-1{
+.contentbox-1 {
     margin: 4rem 2rem 2rem 2rem;
     border-bottom: 1px solid #E8E8E8;
     padding-bottom: 4rem;
     height: fit-content;
 }
 
-.title-1{
+.title-1 {
     display: flex;
     /* border: 1px solid black; */
 }
 
-.form-check{
+.form-check {
     /* border: 1px solid black; */
 }
 
-.titletext-1{
+.titletext-1 {
     font-size: 1.2rem;
     padding-top: 0.25rem;
     padding-left: 0.2rem;
     font-weight: 700;
 }
 
-.content-1{
+.content-1 {
     display: flex;
     /* border: 1px solid black; */
-    margin: 2rem 2.1rem ;
+    margin: 2rem 2.1rem;
 }
 
-.route_str_1_start{
+.route_str_1_start {
     padding: 1.2rem 1rem 0rem 1rem;
 }
 
-.route_str_1_end{
+.route_str_1_end {
     padding: 1.2rem 1rem 0rem 1rem;
 }
 
-.return-txt{
+.return-txt {
     /* border:1px solid black; */
-    padding-top: 0.4rem ;
+    padding-top: 0.4rem;
     font-size: 0.25rem;
 }
 
-hr{
+hr {
     width: 4rem;
     border: 0.01rem orange;
     margin-bottom: 0.3rem;
 }
 
-.howtogo-box{
+.howtogo-box {
     /* border: 5px solid rgb(47, 47, 150); */
     margin-left: 28rem;
     width: fit-content;
-    font-size:0.8rem;
-    
+    font-size: 0.8rem;
     /* float: right; */
 }
 
-.transport{
+.transport {
     /* border: 1px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.car{
+.car {
     display: flex;
     justify-content: center;
     align-items: center;
     /* border: 1px solid red; */
     margin-top: 1rem;
 }
-.howtogo-txt{
+
+.howtogo-txt {
     background-color: #F0F0F0;
 }
-.car-txt{
+
+.car-txt {
     /* border:1px solid blue; */
     background-color: #F0F0F0;
     margin-right: 1.2rem;
 }
 
-
-.kakaoicon{
+.kakaoicon {
     /* border:0.1rem solid black; */
-    width:1.9rem;
-    height:1.9rem;
+    width: 1.9rem;
+    height: 1.9rem;
     /* float:left; */
     margin-left: 1.8rem;
     margin-right: 0.9rem;
 }
 
-.navericon{
+.navericon {
     /* border:0.1rem solid black; */
-    width:1.9rem;
-    height:1.9rem;
+    width: 1.9rem;
+    height: 1.9rem;
     /* float:left; */
     margin-left: 1rem;
     margin-right: 0.9rem;
 }
 
-
-.route_str_2_start{
+.route_str_2_start {
     padding: 1.2rem 1rem 0rem 1rem;
 }
 
-.route_str_2_end{
+.route_str_2_end {
     padding: 1.2rem 1rem 0rem 1rem;
 }
 
-.return-txt{
+.return-txt {
     /* border:1px solid black; */
-    padding-top: 0.4rem ;
+    padding-top: 0.4rem;
     font-size: 0.25rem;
 }
 
-.content-2{
+.content-2 {
     /* border: 1px solid black; */
     margin-top: 2rem;
-    margin-left:3.1rem;
-    margin-right:2.1rem;
+    margin-left: 3.1rem;
+    margin-right: 2.1rem;
     line-height: 2.3rem;
-    font-size:0.9rem;
+    font-size: 0.9rem;
     /* padding-left:1rem; */
 }
-.ect_info{
+
+.ect_info {
     padding-top: 1rem;
 }
 
-.short-map{
+.short-map {
     display: flex;
-    /* border: 0.1rem solid black; */
+    border: 1rem solid black;
     width: fit-content;
-    margin:auto;
+    margin: auto;
 }
 
-.short-map_img{
-    margin-top:3rem;
+.short-map_img {
+    margin-top: 3rem;
     border-radius: 1rem;
+    border: 1rem solid black;
 }
 
-#short-map_img_1{
+#short-map_img_1 {
     margin-right: 2rem;
+    border: 1rem solid black;
 }

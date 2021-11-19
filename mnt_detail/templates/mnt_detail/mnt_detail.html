@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 
 {% load static %}
-{% block title %}계룡산{% endblock %}
+{% block title %}{{contents.section_1.mnt_name}}{% endblock %}
 {% block head %}
+{% comment %} 날씨관련 css pack {% endcomment %}
+{% comment %} <link rel="stylesheet" href="{% static 'mnt_detail/css/weather-icon.css' %}"> {% endcomment %}
 <link rel="stylesheet" href="{% static 'mnt_detail/css/style.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5qvggan3zt"></script>
 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=583339486fc3a9b874ce7501159c3d8d"></script>
+
 {% endblock %}
 {% block content %}
+<script></script>
 <main>
     <div class="body">
         <div class = "mainimage-box">
@@ -33,7 +37,7 @@
                 <div class="crs">모험코스</div>
             </div>
             <!-- 들머리 날머리 위치 & 가는법 -->
-            <div class="contentbox-1">
+            <div class="contentbox-1" id="section_1">
                 <div class="title-1">
                     <div class="form-check">
                         <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -45,7 +49,11 @@
                 <div class="content-1">
                     <div class="route_str_1_start">{{contents.section_2.route_str_1_start}}</div>
                     <div class="center-elements">
+                        {% if contents.section_2.route_1_tag == True %}
                         <div class="return-txt">원점회귀</div>
+                        {% else %}
+                        <div class="return-txt"></div>
+                        {% endif %}
                         <hr style="border: orange 1px solid;">
                     </div>
                     <div class="route_str_1_end">{{contents.section_2.route_str_1_end}}</div>
@@ -53,23 +61,43 @@
                 <div class="howtogo-box">
                     <div class="transport">
                         <div class="howtogo-txt">대중교통 가는 법</div>
+                        <a href="{{contents.section_2.kakao_bmw_link}}">
                         <img src="{% static 'mnt_detail/assets/kakaomap_icon.jpg' %}" class="kakaoicon">
-                        <div class="kakao-txt">카카오맵 길찾기</div>
+                        </a>
+                        <a href="{{contents.section_2.kakao_bmw_link}}">
+                        <div class="kakao-txt" >카카오맵 길찾기</div>
+                        </a>
+                        <a href="{{contents.section_2.kakao_bmw_link}}">
                         <img src="{% static 'mnt_detail/assets/navermap_icon.jpg' %}" class="navericon">
-                        <div class="naver-txt">네이버지도 길찾기</div>
+                        </a>
+                        <a href="{{contents.section_2.kakao_bmw_link}}">
+                        <div class="naver-txt" >네이버지도 길찾기</div>
+                        </a>
                     </div>
                     <div class="car">
                         <div class="car-txt">자차(주차장)</div>
-                        <img src="{% static 'mnt_detail/assets/kakaomap_icon.jpg' %}" class="kakaoicon">
+                        <a href="{{contents.section_2.kakao_car_link}}">
+                        <img src="{% static 'mnt_detail/assets/kakaomap_icon.jpg' %}" class="kakaoicon" OnClick="windows.open={{contents.section_2.kakao_car_link}}">
+                        </a>
+                        <a href="{{contents.section_2.kakao_car_link}}">
                         <div class="kakao-txt">카카오맵 길찾기</div>
-                        <img src="{% static 'mnt_detail/assets/navermap_icon.jpg' %}" class="navericon">
+                        </a>
+                        <a href="{{contents.section_2.naver_car_link}}">
+                        <img src="{% static 'mnt_detail/assets/navermap_icon.jpg' %}" class="navericon"  OnClick="windows.open={{contents.section_2.naver_car_link}}">
+                        </a>
+                        <a href="{{contents.section_2.naver_car_link}}">
                         <div class="naver-txt">네이버지도 길찾기</div>
+                        </a>
                     </div>
                 </div>
                 <div class="content-1">
                     <div class="route_str_2_start">{{contents.section_2.route_str_2_start}}</div>
                     <div class="center-elements">
+                        {% if contents.section_2.route_2_tag == True %}
                         <div class="return-txt">원점회귀</div>
+                        {% else %}
+                        <div class="return-txt"></div>
+                        {% endif %}
                         <hr style="border: orange 1px solid;">
                     </div>
                     <div class="route_str_2_end">{{contents.section_2.route_str_2_end}}</div>
@@ -77,10 +105,18 @@
                 <div class="howtogo-box">
                     <div class="transport">
                         <div class="howtogo-txt">대중교통 가는 법</div>
+                        <a href="{{contents.section_2.kakao_bmw_link}}">
                         <img src="{% static 'mnt_detail/assets/kakaomap_icon.jpg' %}" class="kakaoicon">
+                        </a>
+                        <a href="{{contents.section_2.kakao_bmw_link}}">
                         <div class="kakao-txt">카카오맵 길찾기</div>
+                        </a>
+                        <a href="{{contents.section_2.naver_bmw_link}}">
                         <img src="{% static 'mnt_detail/assets/navermap_icon.jpg' %}" class="navericon">
+                        </a>
+                        <a href="{{contents.section_2.naver_bmw_link}}">
                         <div class="naver-txt">네이버지도 길찾기</div>
+                        </a>
                     </div>
                     <div class="car">
                         <div class="car-txt">자차(주차장)</div>
@@ -90,13 +126,17 @@
                         <a href="{{contents.section_2.kakao_car_link}}">
                             <div class="kakao-txt">카카오맵 길찾기</div>
                         </a>
+                        <a href="{{contents.section_2.naver_car_link}}">
                         <img src="{% static 'mnt_detail/assets/navermap_icon.jpg' %}" class="navericon">
+                        </a>
+                        <a href="{{contents.section_2.naver_car_link}}">
                         <div class="naver-txt">네이버지도 길찾기</div>
+                        </a>
                     </div>
                 </div>
             </div>
             <!-- 코스 -->
-            <div class="contentbox-1">
+            <div class="contentbox-1" id="section_3">
                 <div class="title-1">
                     <div class="form-check">
                         <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -110,8 +150,7 @@
                     <div class="short">{{contents.section_3.short_path_1}}</div>
                     <div class="short">- 최단코스2 ({{contents.section_3.short_path_length_2}}km)</div>
                     <div class="short">{{contents.section_3.short_path_2}}</div>
-                    <div class="ect_info">* 인증 정보 (위치는 하단 지도 참조) <br> &nbsp&nbsp&nbsp 관음봉(블랙야크 100대 명산), 동학사(국립공원 스템프 투어)</div>
-
+                    <div class="ect_info">* 인증 정보 (위치는 하단 지도 참조) <br> </div>
                     <div class="short-map">
                         <div id="short-map_img_1" alt="임시이미지"  style="width:300px;height:300px"
                         class="short-map_img"></div>
@@ -123,7 +162,7 @@
                 </div>
             </div>
             <!-- 소요시간 -->
-            <div class="contentbox-1">
+            <div class="contentbox-1" id="section_4">
                 <div class="title-1">
                     <div class="form-check">
                         <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -133,13 +172,14 @@
                     <div class="titletext-1">소요시간</div>
                 </div>
                 <div class="content-2">
-                    <div class="short">- 최단코스1(갑사) 평속(2)km/h로 이동 시 ()시간 ()분</div>
-                    <div class="short">- 최단코스2(동학사) 평속(2)km/h로 이동시 ()시간 ()분</div>
+                    <div class="short">- 최단코스{{contents.section_4.short_path_1_name}} 평속(2)km/h로 이동 시 {{contents.section_4.short_path_1_spend}}분 소모</div>
+                    <div class="short">- 최단코스{{contents.section_4.short_path_2_name}} 평속(2)km/h로 이동 시 {{contents.section_4.short_path_2_spend}}분 소모</div>
                     <div class="ect_info">* 휴식시간 제외, 본 예상 소요시간은 계절, 날씨, 개인의 산행 스타일에 따라 크게 달라질 수 있으니 참고만 하세요 ^^</div>
                 </div>
             </div>
             <!-- 날씨 -->
-            <div class="contentbox-1">
+            
+            <div class="contentbox-1" id="section_5">
                 <div class="title-1">
                     <div class="form-check">
                         <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -147,10 +187,11 @@
                         </label>
                     </div>
                     <div class="titletext-1">날씨</div>
+                    <iframe width="90%" height="245" src="https://forecast.io/embed/#lat={{contents.section_1.mnt_lat}}&lon={{contents.section_1.mnt_lng}}&name={{contents.section_1.mnt_name}}&color=#F6A8A6&font=arial&units=si" frameborder="0"></iframe>
                 </div>
             </div>
             <!-- 사진 스팟 -->
-            <div class="contentbox-1">
+            <div class="contentbox-1" id="section_6">
                 <div class="title-1">
                     <div class="form-check">
                         <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -161,17 +202,17 @@
                 </div>
                 <div class="content-2">
                     <div class="short-map">
-                        <img src=https://via.placeholder.com/250/ alt="임시이미지"
+                        <img src={{contents.section_6.photo_link_1}} alt=https://via.placeholder.com/250/ 
+                        class="short-map_img" id="short-map_img_1"/>
+                        <img src={{contents.section_6.photo_link_2}} alt=https://via.placeholder.com/250
                         class="short-map_img" id="short-map_img_1" />
-                        <img src=https://via.placeholder.com/250 alt="임시이미지"
-                        class="short-map_img" id="short-map_img_1" />
-                        <img src=https://via.placeholder.com/250 alt="임시이미지"
+                        <img src={{contents.section_6.photo_link_3}} alt=https://via.placeholder.com/250
                         class="short-map_img"/>
                     </div>
                 </div>
             </div>
             <!-- 요금 -->
-            <div class="contentbox-1">
+            <div class="contentbox-1" id="section_7">
                 <div class="title-1">
                     <div class="form-check">
                         <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -188,12 +229,41 @@
                     <div class="short">- 최단코스2 ({{contents.section_4.short_path_2_name}})</div>
                     <div class="ect_info"> &nbsp; &nbsp;- 주차비 {{contents.section_7.p2_cost_car}}원(일반 승용차,{{contents.section_7.p2_cost_car_valid}}기준)
                         <br>&nbsp; &nbsp;- 입장료 {{contents.section_7.p2_cost_enter}}원(성인,{{contents.section_7.p2_cost_enter_valid}}기준)</div>
-                    <div class="ect_info">* {{contents.section_7.cost_etc}} </div>
+                    <div class="ect_info">* 기타사항 {{contents.section_7.cost_etc}} </div>
 
                     </div>
                 </div>
-            </div>
+
+                
+            
             <!-- 주변 맛집 -->
+            <div class="contentbox-1" id="section_8">
+                <div class="title-1">
+                    <div class="form-check">
+                        <input style='zoom:1.4;' class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        </label>
+                    </div>
+                    <div class="titletext-1">맛집</div>
+                </div>
+                <div class="content-2">
+                    <div class="row row-cols-4">
+                        {% for o in contents.section_8 %}
+                        <div class="col">
+                            <div class="card" style="width: 12rem;">
+                                <img src="https://via.placeholder.com/100/" class="card-img-top" alt="https://via.placeholder.com/100/">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{o.shop_name}} </h5>
+                                    <p class="card-text">분류: {{o.category}} 별점:{{o.review_score}}</p>
+                                    <a href="{{o.urls}}" class="btn btn-primary">링크</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
 </main>
