@@ -17,15 +17,15 @@ def mnt_detail(request,major_mnt_code):
     }
     return render(request, "mnt_detail/mnt_detail.html", context)
 
-# def mnt_detail_default(request):
-#     json_rq = requests.get("http://34.64.157.240:8000/details/default")
-#     json_rq = json_rq.text
-#     json_dict = json.loads(json_rq)
-#     print(type(json_dict))
-#     context = {
-#         "contents": json_dict, 
-#     }
-#     return render(request, "mnt_detail/mnt_detail.html", context)
+def mnt_detail_default(request):
+    json_rq = requests.get("http://34.64.157.240:8000/details/default")
+    json_rq = json_rq.text
+    json_dict = json.loads(json_rq)
+    print(type(json_dict))
+    context = {
+        "contents": json_dict, 
+    }
+    return render(request, "mnt_detail/mnt_detail.html", context)
 
 
 def admin_gpx_code(request):

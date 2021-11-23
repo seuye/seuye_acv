@@ -28,9 +28,10 @@ a.hashtag:hover{
     /* width: 100%; */
     height: 600px;
 }
-
+/* body{
+    background-color: #F0F0F0;
+} */
 main{
-    /* background-color: #F0F0F0; */
     height: fit-content;
 }
 
@@ -204,23 +205,24 @@ input::placeholder {
 
 /* 슬라이드 */
 .slider{
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    /* border:2px solid black; */
-    /* align-items: center; */
+    
+    /* display: flex;
+    position: relative;
+    flex-direction: row; */
+    /* border:2px solid rgb(5, 250, 136);
+    margin:auto; */
+    /* margin: auto; */
+    /* align-items: center;
     justify-content: center;
     height: max-content;
-    /* border:5px solid black; */
-    padding:0rem;
+    width: fit-content; */
 }
 
 .image {
-    width: 450px;
-    height: 450px;
     /* border:5px solid black; */
     position: relative;
-    padding:3.5rem 0; 
+    padding-top:4.5rem; 
+    padding-bottom: 4.8rem;
 }
 
 .image img{
@@ -230,7 +232,9 @@ input::placeholder {
     margin: 0 1rem;
     border-radius: 3rem;
     -webkit-filter: grayscale(100%);
-    filter:gray;
+    filter:gray;     
+    box-shadow: 0.5px 0.5px 3px 1px rgba(60, 60, 60, 0.479);
+
     /* border:5px solid black; */
 }
 .slick-list {
@@ -242,12 +246,16 @@ input::placeholder {
     transform: scale(1.25);
     z-index: 800;
     -webkit-filter: grayscale(0%);
+    box-shadow: 1px 3px 7px 2px rgba(60, 60, 60, 0.712);
     filter:none;
 }
 
 .slick-arrow{
-    border:none
+    border:none;
     /* position: absolute; */
+    width:3rem;
+    display: none;
+
 }
 
 

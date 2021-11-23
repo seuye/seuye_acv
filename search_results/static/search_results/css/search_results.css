@@ -1,7 +1,9 @@
+
+
 main{
-    /* background-color: #F0F0F0; */
     height: fit-content;
 }
+
 
 
 .main-container {
@@ -63,6 +65,8 @@ main{
 {
     position: relative;
 }
+
+
 
 #search-box {
     border: 1px solid rgba(130, 128, 128, 0.372);

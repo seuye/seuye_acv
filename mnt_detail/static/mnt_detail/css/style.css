@@ -75,14 +75,14 @@ nav {
     /* border:0.1rem solid black; */
     font-size: 2.6rem;
     font-weight: bold;
-    margin: 5rem 2rem 0 2rem;
+    margin: 5rem 2.5rem 0 2.5rem;
     padding-top: 2rem;
 }
 
 .atit {
     display: flex;
     /* border:0.1rem solid black; */
-    margin: 0.8rem 2rem 0 2rem;
+    margin: 0.8rem 2.5rem 0 2.5rem;
     font-size: 1.5rem;
     width: fit-content;
     height: 3rem;
@@ -106,7 +106,7 @@ nav {
 .tag-box {
     /* border:1px solid black; */
     display: flex;
-    margin: 2rem 2rem 1.5rem 2rem;
+    margin: 1rem 2rem 4rem 2rem;
     width: fit-content;
 }
 
@@ -115,17 +115,17 @@ nav {
     background-color: rgb(242, 245, 248);
     margin-right: 0.6rem;
     padding: 0.3rem 1rem 0.4rem 1rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: bold;
     border-radius: 1rem;
     color: rgb(67, 77, 85);
 }
 
 .info_long {
-    margin: 0 2rem 2rem 2rem;
+    margin: 0 4rem 7rem 4rem;
     /* border:1px solid black; */
     border-radius: 2rem;
-    padding: 1.8rem 2rem;
+    padding: 2rem 3rem;
     background-color: rgb(242, 245, 248);
     color: rgb(67, 77, 85);
     line-height: 2rem;
@@ -136,6 +136,7 @@ nav {
     display: flex;
     border-radius: 1rem 1rem 0rem 0rem;
     background-color: rgb(255, 118, 12);
+    margin-bottom: 6rem;
 }
 
 .crs {
@@ -159,6 +160,7 @@ nav {
     border-bottom: 1px solid #E8E8E8;
     padding-bottom: 4rem;
     height: fit-content;
+    /* border: orange 2px solid; */
 }
 
 .title-1 {
@@ -171,7 +173,7 @@ nav {
 }
 
 .titletext-1 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     padding-top: 0.25rem;
     padding-left: 0.2rem;
     font-weight: 700;
@@ -271,10 +273,10 @@ hr {
 .content-2 {
     /* border: 1px solid black; */
     margin-top: 2rem;
-    margin-left: 3.1rem;
+    margin-left: 1.1rem;
     margin-right: 2.1rem;
     line-height: 2.3rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     /* padding-left:1rem; */
 }
 
@@ -284,7 +286,7 @@ hr {
 
 .short-map {
     display: flex;
-    border: 1rem solid black;
+    /* border: 1rem solid black; */
     width: fit-content;
     margin: auto;
 }
@@ -292,10 +294,19 @@ hr {
 .short-map_img {
     margin-top: 3rem;
     border-radius: 1rem;
-    border: 1rem solid black;
+    /* border: 0.1rem solid black; */
 }
 
 #short-map_img_1 {
     margin-right: 2rem;
-    border: 1rem solid black;
+    /* border: 0.1rem solid black; */
+}
+
+#photospot_img_2 {
+    margin: 0rem 1rem;
+    /* border: 0.1rem solid black; */
+}
+
+#photospot_img_1 {
+    margin: 0rem;
 }

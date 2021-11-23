@@ -9,5 +9,4 @@ urlpatterns = [
     path('post-view/<int:post_id>/', views.free_post_view),
     path('post-edit/<int:post_id>/', views.free_post_update),
     path('post-delete/<int:post_id>/', views.free_post_delete),
-
     ]

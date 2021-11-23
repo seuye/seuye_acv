@@ -26,7 +26,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path("free_board/", include('free_board.urls')),
     path("detail/", include("mnt_detail.urls")),
-    # path("", include("landing.urls")),
+    path("", include("landing.urls")),
     path("", include("search_results.urls")),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

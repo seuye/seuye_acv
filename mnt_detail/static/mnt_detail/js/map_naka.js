@@ -223,3 +223,4 @@ function draw_weather(dbPack) {
 
 
     }
+}
